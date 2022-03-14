@@ -10,10 +10,8 @@ const register = async (req, res, next) => {
       email,
       password,
     });
-    res.status(201).json({
-      success: true,
-      user,
-    });
+
+    sendToken(user, 201, res);
   } catch (err) {
     next(err);
   }
@@ -21,6 +19,7 @@ const register = async (req, res, next) => {
 
 const login = async (req, res, next) => {
   const { email, password } = req.body;
+  console.log(req.body);
 
   if (!email || !password) {
     return next(new ErrorResponse("Please provide an email and password", 400));
@@ -34,17 +33,15 @@ const login = async (req, res, next) => {
     }
 
     const isMatch = await user.matchPasswords(password);
+    console.log(isMatch, "isMATCH???");
 
     if (!isMatch) {
       return next(new ErrorResponse("Invalid credentials", 401));
     }
 
-    res.status(201).json({
-      sucess: true,
-      token: "fefefge",
-    });
+    sendToken(user, 201, res);
   } catch (err) {
-    next(err);
+    res.status(500).json({ sucess: false, error: err.message });
   }
 };
 
@@ -62,6 +59,11 @@ const resetPassword = (req, res, next) => {
   } catch (error) {
     console.error(error);
   }
+};
+
+const sendToken = (user, statusCode, res) => {
+  const token = user.getToken();
+  res.status(statusCode).json({ sucess: true, token });
 };
 
 module.exports = {
