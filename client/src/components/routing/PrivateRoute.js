@@ -1,18 +1,22 @@
-import React from "react";
-import { Redirect, Route } from "react-router-dom";
+import React, { Fragment } from "react";
+import { Navigate, Routes, Route } from "react-router-dom";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
-    <Route
-      {...rest}
-      render={(props) =>
-        localStorage.getItem("authToken") ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to="/login" />
-        )
-      }
-    />
+    <Fragment>
+      <Routes>
+        <Route
+          {...rest}
+          render={(props) =>
+            localStorage.getItem("authToken") ? (
+              <Component {...props} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+      </Routes>
+    </Fragment>
   );
 };
 

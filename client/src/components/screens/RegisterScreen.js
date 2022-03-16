@@ -1,15 +1,65 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import React from "react";
 
 const RegisterScreen = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("authToken")) {
+      navigate.push("/");
+    }
+  }, [navigate]);
+
+  const registerHandler = async (evt) => {
+    evt.preventDefault();
+
+    const config = {
+      header: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    if (password !== confirmPassword) {
+      setPassword("");
+      setConfirmPassword("");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+      return setError("Passwords do not match");
+    }
+
+    try {
+      const { data } = await axios.post(
+        "/api/auth/register",
+        { username, email, password },
+        config
+      );
+
+      localStorage.setItem("authToken", data.token);
+      navigate.push("/");
+    } catch (error) {
+      setError(error.response.data.error);
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+    }
+  };
+
   return (
     <RegisterMain>
-      <RegisterScreenForm>
+      <RegisterScreenForm onSubmit={registerHandler}>
         <RegisterTitle>Register</RegisterTitle>
+        {error && <ErrorMessage>{error}</ErrorMessage>}
         <RegisterInput>
           <label htmlFor="name">Username:</label>
           <input
@@ -24,7 +74,7 @@ const RegisterScreen = () => {
         <RegisterInput>
           <label htmlFor="email">Email:</label>
           <input
-            type="text"
+            type="email"
             required
             id="email"
             placeholder="Email Address"
@@ -32,6 +82,32 @@ const RegisterScreen = () => {
             onChange={(evt) => setEmail(evt.target.value)}
           />
         </RegisterInput>
+        <RegisterInput>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            required
+            id="password"
+            placeholder="Enter Password"
+            value={password}
+            onChange={(evt) => setPassword(evt.target.value)}
+          />
+        </RegisterInput>
+        <RegisterInput>
+          <label htmlFor="confirmPassword">Confirm Password:</label>
+          <input
+            type="password"
+            required
+            id="confirmpassword"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(evt) => setConfirmPassword(evt.target.value)}
+          />
+        </RegisterInput>
+        <RegisterButton>Register</RegisterButton>
+        <RegisterSubtext>
+          Already have an account? <Link to="/login">Login</Link>
+        </RegisterSubtext>
       </RegisterScreenForm>
     </RegisterMain>
   );
@@ -59,7 +135,7 @@ const RegisterTitle = styled.h3`
   margin-bottom: 1rem;
 `;
 
-const RegisterInput = styled.input`
+const RegisterInput = styled.div`
   padding: 10px 20px;
   border: none;
   border-bottom: 3px solid transparent;
@@ -68,9 +144,26 @@ const RegisterInput = styled.input`
   font-size: 1rem;
 `;
 
+const RegisterButton = styled.button`
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+  border: none;
+`;
 
-.register-screen__subtext {
+const RegisterSubtext = styled.p`
   font-size: 0.7rem;
   display: block;
   margin: 0.5rem 0;
-}
+`;
+
+const ErrorMessage = styled.p`
+  width: 100%;
+  display: inline-block;
+  padding: 5px;
+  background: red;
+  color: #fff;
+  text-align: center;
+  margin: 0.5rem 0;
+`;
