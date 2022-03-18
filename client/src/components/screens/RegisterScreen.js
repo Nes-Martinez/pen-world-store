@@ -16,7 +16,7 @@ const RegisterScreen = () => {
 
   useEffect(() => {
     if (localStorage.getItem("authToken")) {
-      navigate.push("/");
+      navigate("/");
     }
   }, [navigate]);
 
@@ -46,7 +46,7 @@ const RegisterScreen = () => {
       );
 
       localStorage.setItem("authToken", data.token);
-      navigate.push("/");
+      navigate("/");
     } catch (error) {
       setError(error.response.data.error);
       setTimeout(() => {

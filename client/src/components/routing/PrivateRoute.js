@@ -1,22 +1,12 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Navigate, Routes, Route } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-  return (
-    <Fragment>
-      <Routes>
-        <Route
-          {...rest}
-          render={(props) =>
-            localStorage.getItem("authToken") ? (
-              <Component {...props} />
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
-        />
-      </Routes>
-    </Fragment>
+const PrivateRoute = ({ component }) => {
+  return localStorage.getItem("authToken") ? (
+    component
+  ) : (
+    <Navigate to="/login" />
   );
 };
 

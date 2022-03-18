@@ -1,19 +1,18 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 
-const PrivateScreen = () => {
-  console.log("from the Private Screen");
+const HomeScreen = () => {
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    // if (!localStorage.getItem("authToken")) {
-    //   navigate("/login");
-    // }
+    if (!localStorage.getItem("authToken")) {
+      navigate("/login");
+    }
 
     const fetchPrivateDate = async () => {
       const config = {
@@ -25,6 +24,7 @@ const PrivateScreen = () => {
 
       try {
         const { data } = await axios.get("/api/private", config);
+        console.log({ data });
         setPrivateData(data.data);
       } catch (error) {
         localStorage.removeItem("authToken");
@@ -40,9 +40,7 @@ const PrivateScreen = () => {
     navigate("/login");
   };
 
-  return error ? (
-    <ErrorMessage>{error}</ErrorMessage>
-  ) : (
+  return (
     <>
       <PrivateData>{privateData}</PrivateData>
       <LogoutButton onClick={logoutHandler}>Logout</LogoutButton>
@@ -50,21 +48,11 @@ const PrivateScreen = () => {
   );
 };
 
-export default PrivateScreen;
+export default HomeScreen;
 
 const PrivateData = styled.div`
   background: green;
   color: white;
-`;
-
-const ErrorMessage = styled.p`
-  width: 100%;
-  display: inline-block;
-  padding: 5px;
-  background: red;
-  color: #fff;
-  text-align: center;
-  margin: 0.5rem 0;
 `;
 
 const LogoutButton = styled.button`

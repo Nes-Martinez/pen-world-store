@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import PrivateRoute from "./components/routing/PrivateRoute";
 
+import HomeScreen from "./components/screens/HomeScreen";
 import PrivateScreen from "./components/screens/PrivateScreen";
 import LoginScreen from "./components/screens/LoginScreen";
 import RegisterScreen from "./components/screens/RegisterScreen";
@@ -13,11 +14,7 @@ const App = () => {
     <Router>
       <div className="App">
         <Routes>
-          <Route
-            exact
-            path="*"
-            element={<PrivateRoute component={<PrivateScreen />} />}
-          />
+          <Route path="/" element={<HomeScreen />} />
           <Route exact path="/login" element={<LoginScreen />} />
           <Route exact path="/register" element={<RegisterScreen />} />
           <Route
@@ -29,6 +26,15 @@ const App = () => {
             exact
             path="/passwordreset/:resetToken"
             element={<ResetPasswordScreen />}
+          />
+          <Route
+            exact
+            path="/private"
+            element={
+              <PrivateRoute>
+                <PrivateScreen />
+              </PrivateRoute>
+            }
           />
         </Routes>
       </div>
