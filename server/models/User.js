@@ -42,9 +42,16 @@ UserSchema.methods.matchPasswords = async function (password) {
 };
 
 UserSchema.methods.getToken = function () {
-  return jwtoken.sign({ id: this._id }, process.env.JWTOKEN_SECRET, {
-    expiresIn: process.env.JWTOKEN_EXPIRE,
-  });
+  return jwtoken.sign(
+    {
+      id: this._id,
+      isAdmin: this.isAdmin,
+    },
+    process.env.JWTOKEN_SECRET,
+    {
+      expiresIn: process.env.JWTOKEN_EXPIRE,
+    }
+  );
 };
 
 UserSchema.methods.getResetToken = function () {

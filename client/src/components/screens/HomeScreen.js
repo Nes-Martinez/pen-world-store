@@ -24,7 +24,7 @@ const HomeScreen = () => {
 
       try {
         const { data } = await axios.get("/api/private", config);
-        console.log({ data });
+        console.log("Heres data", { data });
         setPrivateData(data.data);
       } catch (error) {
         localStorage.removeItem("authToken");

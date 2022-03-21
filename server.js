@@ -11,6 +11,7 @@ app.use(express.json());
 
 app.use("/api/auth", require("./server/routes/auth"));
 app.use("/api/private", require("./server/routes/private"));
+app.use("/api/users", require("./server/routes/users"));
 
 app.use(express.static(path.join(__dirname, "build")));
 
