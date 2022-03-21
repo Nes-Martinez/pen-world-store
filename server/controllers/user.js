@@ -11,11 +11,18 @@ const getUsers = async (req, res, next) => {
   }
 };
 
-const update = async (req, res, next) => {
-  // const { id } = req.params.id;
-  const newInfo = req.body;
+const getSingleUser = async (req, res, next) => {
+  try {
+    const user = await User.findById({ _id: req.params.id });
+    const { password, ...otherInfo } = user._doc;
+    res.status(200).json(otherInfo);
+  } catch (err) {
+    next(err);
+  }
+};
 
-  console.log("newInfo", newInfo);
+const updateUser = async (req, res, next) => {
+  const newInfo = req.body;
 
   try {
     const updatedUser = await User.findByIdAndUpdate(
@@ -35,7 +42,22 @@ const update = async (req, res, next) => {
   }
 };
 
+const deleteUser = async (req, res, next) => {
+  try {
+    await User.findByIdAndDelete({
+      _id: req.params.id,
+    });
+
+    res.status(200).json("User deleted successfully");
+  } catch (err) {
+    console.log("Delete error", err);
+    next(err);
+  }
+};
+
 module.exports = {
   getUsers,
-  update,
+  getSingleUser,
+  updateUser,
+  deleteUser,
 };
