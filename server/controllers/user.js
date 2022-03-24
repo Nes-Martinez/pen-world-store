@@ -1,6 +1,5 @@
 require("dotenv").config();
 const User = require("../models/User");
-const ErrorResponse = require("../utils/errorResponse");
 
 const getUsers = async (req, res, next) => {
   try {
