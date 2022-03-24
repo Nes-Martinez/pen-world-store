@@ -10,9 +10,13 @@ const {
 } = require("../controllers/product");
 
 router.get("/", getProducts);
+
 router.get("/:id", getSingleProduct);
+
 router.post("/", protectAndAdmin, createProduct);
+
 router.put("/:id", protectAndAdmin, updateProduct);
+
 router.delete("/:id", protectAndAdmin, deleteProduct);
 
 module.exports = router;

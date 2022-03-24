@@ -26,7 +26,6 @@ const getProducts = async (req, res, next) => {
 const getSingleProduct = async (req, res, next) => {
   try {
     const product = await Product.findById({ _id: req.params.id });
-    // const { password, ...otherInfo } = user._doc;
     res.status(200).json(product);
   } catch (err) {
     next(err);

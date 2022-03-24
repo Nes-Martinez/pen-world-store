@@ -12,8 +12,11 @@ const {
 } = require("../controllers/user");
 
 router.get("/", protectAndAdmin, getUsers);
+
 router.get("/:id", protectAndAuthorize, getSingleUser);
+
 router.put("/:id", protectAndAuthorize, updateUser);
+
 router.delete("/:id", protectAndAdmin, deleteUser);
 
 module.exports = router;
