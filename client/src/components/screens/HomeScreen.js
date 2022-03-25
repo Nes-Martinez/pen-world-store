@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../elements/Navbar";
 import Announcement from "../elements/Announcement";
+import Carousel from "../elements/Carousel";
 
 const HomeScreen = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const HomeScreen = () => {
       <Announcement />
 
       <Navbar />
+      <Carousel />
       <LogoutButton onClick={logoutHandler}>Logout</LogoutButton>
     </>
   );
