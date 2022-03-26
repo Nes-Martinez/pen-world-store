@@ -1,18 +1,21 @@
 {
   "files": {
     "main.css": "/static/css/main.e7628f68.css",
-    "main.js": "/static/js/main.2a592ff4.js",
+    "main.js": "/static/js/main.21498031.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
-    "static/media/montegrappa-950px.jpg": "/static/media/montegrappa-950px.49dcd8b1db0231886af6.jpg",
-    "static/media/cross-mailta-950px.png": "/static/media/cross-mailta-950px.a7cd5a0c971cfa05632d.png",
-    "static/media/1911makie-sailor-950px.jpg": "/static/media/1911makie-sailor-950px.c5109ce29603d9680f34.jpg",
+    "static/media/slide3.jpg": "/static/media/slide3.2c12a8300d786cc4aa62.jpg",
+    "static/media/slide2.jpg": "/static/media/slide2.2f7e6c5e489f2329a2cd.jpg",
+    "static/media/slide1.jpg": "/static/media/slide1.439a6765cbfb85804504.jpg",
+    "static/media/category1.jpg": "/static/media/category1.42d7a0a9d1d267d17da8.jpg",
+    "static/media/category3.jpg": "/static/media/category3.75a705f2c52aabdc6e18.jpg",
+    "static/media/category2.jpg": "/static/media/category2.00b43ace8b269507472d.jpg",
     "index.html": "/index.html",
     "main.e7628f68.css.map": "/static/css/main.e7628f68.css.map",
-    "main.2a592ff4.js.map": "/static/js/main.2a592ff4.js.map",
+    "main.21498031.js.map": "/static/js/main.21498031.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e7628f68.css",
-    "static/js/main.2a592ff4.js"
+    "static/js/main.21498031.js"
   ]
 }

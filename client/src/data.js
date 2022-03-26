@@ -1,6 +1,10 @@
-import img1 from "../src/images/1911makie-sailor-950px.jpg";
-import img2 from "../src/images/cross-mailta-950px.png";
-import img3 from "../src/images/montegrappa-950px.jpg";
+import img1 from "../src/images/slide1.jpg";
+import img2 from "../src/images/slide2.jpg";
+import img3 from "../src/images/slide3.jpg";
+
+import cat1 from "../src/images/category1.jpg";
+import cat2 from "../src/images/category2.jpg";
+import cat3 from "../src/images/category3.jpg";
 
 export const penDetails = [
   {
@@ -23,5 +27,23 @@ export const penDetails = [
     title: "Lo Spirito di Stella",
     description: "Montegrappa craftsmanship, medium nib.",
     bgColor: "fbf0f4",
+  },
+];
+
+export const categoryDetails = [
+  {
+    id: 1,
+    imgUrl: cat1,
+    title: "Japanese",
+  },
+  {
+    id: 2,
+    imgUrl: cat2,
+    title: "American-Made",
+  },
+  {
+    id: 3,
+    imgUrl: cat3,
+    title: "Gold Trim",
   },
 ];

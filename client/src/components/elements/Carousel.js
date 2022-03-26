@@ -64,7 +64,7 @@ export default Carousel;
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   display: flex;
   position: relative;
   overflow: hidden;
@@ -102,7 +102,7 @@ const Wrapper = styled.div`
 
 const Slide = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 70vh;
   display: flex;
   align-items: center;
   background-color: #${(props) => props.bgColor};
@@ -118,6 +118,7 @@ const Image = styled.img`
 `;
 
 const HeroItems = styled.div`
+  vertical-align: top;
   flex: 1;
   padding: 50px;
 `;

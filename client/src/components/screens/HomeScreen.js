@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../elements/Navbar";
 import Announcement from "../elements/Announcement";
 import Carousel from "../elements/Carousel";
+import Categories from "../elements/Categories";
 
 const HomeScreen = () => {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ const HomeScreen = () => {
 
       <Navbar />
       <Carousel />
+      <Categories />
       <LogoutButton onClick={logoutHandler}>Logout</LogoutButton>
     </>
   );
