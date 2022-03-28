@@ -26,12 +26,13 @@ const Carousel = () => {
       <Arrow direction="left" onClick={() => handleClick("left")}>
         <LeftArrow />
       </Arrow>
-      <Wrapper imgIndex={imgIndex}>
+      <SectionWrapper imgIndex={imgIndex}>
         {penDetails.map((item) => (
           <Slide bg={item.bgColor} key={item.id}>
             <ImgContainer>
               <Image src={item.imgUrl} />
             </ImgContainer>
+
             <HeroItems>
               <HeroH1>{item.title}</HeroH1>
               <HeroText>{item.description}</HeroText>
@@ -52,7 +53,7 @@ const Carousel = () => {
             </HeroItems>
           </Slide>
         ))}
-      </Wrapper>
+      </SectionWrapper>
       <Arrow direction="right" onClick={() => handleClick("right")}>
         <RightArrow />
       </Arrow>
@@ -68,6 +69,12 @@ const Container = styled.div`
   display: flex;
   position: relative;
   overflow: hidden;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Arrow = styled.div`
@@ -93,7 +100,14 @@ const LeftArrow = styled(ArrowLeftOutlined)``;
 
 const RightArrow = styled(ArrowRightOutlined)``;
 
-const Wrapper = styled.div`
+const SectionWrapper = styled.div`
+  display: grid;
+  z-index: 1;
+
+  margin-right: auto;
+  margin-left: auto;
+
+  justify-content: center;
   height: 100%;
   display: flex;
   transition: all 1.5s ease;

@@ -16,10 +16,20 @@ const CategoryItem = ({ item }) => {
 export default CategoryItem;
 
 const Container = styled.div`
-  flex: 1;
-  margin: 3px;
-  height: 70vh;
+  line-height: 2;
+  background: #f4f4f4;
+  width: 100%;
+  height: auto;
   position: relative;
+  border-radius: 5px;
+  transition: 0.2s escape;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+  @media screen and (max-width: 868px) {
+    width: 85%;
+  }
 `;
 
 const Title = styled.h1`
@@ -31,6 +41,7 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 5px;
 `;
 
 const Info = styled.div`

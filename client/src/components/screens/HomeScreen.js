@@ -6,6 +6,7 @@ import Navbar from "../elements/Navbar";
 import Announcement from "../elements/Announcement";
 import Carousel from "../elements/Carousel";
 import Categories from "../elements/Categories";
+import FeaturedProducts from "../elements/FeaturedProducts";
 
 const HomeScreen = () => {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ const HomeScreen = () => {
       <Navbar />
       <Carousel />
       <Categories />
+      <FeaturedProducts />
       <LogoutButton onClick={logoutHandler}>Logout</LogoutButton>
     </>
   );
