@@ -12,9 +12,9 @@ const Announcement = () => {
 export default Announcement;
 
 const Container = styled.div`
-  height: 30px;
-  background-color: purple;
-  color: white;
+  height: auto;
+  background-color: white;
+  color: #06114f;
   display: flex;
   align-items: center;
   justify-content: center;

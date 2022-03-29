@@ -50,7 +50,6 @@ const Container = styled.div`
   width: 100%;
   height: auto;
   position: relative;
-  border-radius: 5px;
   transition: 0.2s escape;
 
   &:hover {
@@ -60,17 +59,11 @@ const Container = styled.div`
   &:hover ${InfoContainer} {
     opacity: 1;
   }
-
-  @media screen and (max-width: 868px) {
-    width: 85%;
-  }
 `;
 
 const Image = styled.img`
   width: 100%;
   height: 100%;
-
-  border-radius: 5px;
 `;
 
 const Icon = styled.div`

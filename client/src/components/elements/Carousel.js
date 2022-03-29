@@ -65,16 +65,10 @@ export default Carousel;
 
 const Container = styled.div`
   width: 100%;
-  height: 70vh;
+  height: 80vh;
   display: flex;
   position: relative;
   overflow: hidden;
-  padding-top: 60px;
-  padding-bottom: 60px;
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
 `;
 
 const Arrow = styled.div`
@@ -116,7 +110,7 @@ const SectionWrapper = styled.div`
 
 const Slide = styled.div`
   width: 100vw;
-  height: 70vh;
+  height: 80vh;
   display: flex;
   align-items: center;
   background-color: #${(props) => props.bgColor};
@@ -135,6 +129,10 @@ const HeroItems = styled.div`
   vertical-align: top;
   flex: 1;
   padding: 50px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const HeroH1 = styled.h1`

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 // ICONS
+import { FaPenNib } from "react-icons/fa";
 import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 
@@ -17,7 +18,9 @@ const Navbar = () => {
           </SearchContainer>
         </LeftCol>
         <CenterCol>
-          <Logo>PEN WORLD</Logo>
+          <Logo>
+            <PenIcon /> PEN WORLD
+          </Logo>
         </CenterCol>
         <RightCol>
           <MenuLink>Register</MenuLink>
@@ -36,11 +39,13 @@ const Navbar = () => {
 export default Navbar;
 
 const Container = styled.div`
-  height: 60px;
+  height: auto;
+  background-color: #06114f;
+  color: white;
 `;
 
 const NavWrapper = styled.div`
-  padding: 10px 20px;
+  padding: 30px 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -69,16 +74,18 @@ const SearchInput = styled.input`
 `;
 
 const SearchIcon = styled(Search)`
-  color: gray;
+  color: white;
   font-size: 16px;
 `;
 
 const CenterCol = styled.div`
+  display: flex;
   flex: 1;
   text-align: center;
 `;
 
 const Logo = styled.h1`
+  font-size: clamp(1.5rem, 5vw, 2.7rem);
   font-weight: 700;
 `;
 
@@ -96,3 +103,15 @@ const MenuLink = styled.div`
 `;
 
 const CartIcon = styled(ShoppingCartOutlined)``;
+
+const PenIcon = styled(FaPenNib)`
+  margin-right: 10px;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+`;

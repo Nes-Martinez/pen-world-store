@@ -17,31 +17,31 @@ export default CategoryItem;
 
 const Container = styled.div`
   line-height: 2;
-  background: #f4f4f4;
   width: 100%;
   height: auto;
   position: relative;
-  border-radius: 5px;
   transition: 0.2s escape;
 
   &:hover {
     transform: scale(1.03);
   }
-  @media screen and (max-width: 868px) {
-    width: 85%;
+
+  &:hover {
+    filter: brightness(100%);
   }
 `;
 
 const Title = styled.h1`
+  font-size: clamp(1.2rem, 45vw, 3rem);
   color: white;
   margin: 20px;
+  z-index: 10;
 `;
 
 const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 5px;
 `;
 
 const Info = styled.div`
@@ -54,6 +54,11 @@ const Info = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  filter: brightness(80%);
+
+  &:hover {
+    filter: brightness(100%);
+  }
 `;
 
 const Button = styled.button`
@@ -62,7 +67,7 @@ const Button = styled.button`
   white-space: nowrap;
   padding: 18px 20px;
   color: #ffffff;
-  font-size: 15px;
+  font-size: 25px;
   font-weight: 500;
   outline: none;
   border: none;

@@ -21,9 +21,9 @@ export default FeaturedProducts;
 
 const Container = styled.div`
   width: 100vw;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding: 60px 1px 1px 1px;
   height: auto;
+  background-color: #06114f;
 
   @media screen and (max-width: 768px) {
     padding: 0.1rem calc((100vw - 1300px) / 2);
@@ -36,15 +36,14 @@ const SectionHeading = styled.div`
   margin-bottom: 3rem;
   font-weight: 700;
   letter-spacing: 2px;
-  color: purple;
+  color: white;
 `;
 
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 15px;
+  grid-gap: 1px;
   justify-items: center;
-  padding: 0 1.5rem;
 
   @media screen and (max-width: 1200px) {
     grid-template-columns: 1fr 1fr;

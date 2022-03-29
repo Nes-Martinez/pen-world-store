@@ -7,6 +7,8 @@ import Announcement from "../elements/Announcement";
 import Carousel from "../elements/Carousel";
 import Categories from "../elements/Categories";
 import FeaturedProducts from "../elements/FeaturedProducts";
+import SignUp from "../elements/SignUp";
+import Footer from "../elements/Footer";
 
 const HomeScreen = () => {
   const navigate = useNavigate();
@@ -18,13 +20,15 @@ const HomeScreen = () => {
 
   return (
     <>
-      <Announcement />
+      {/* <Announcement /> */}
 
       <Navbar />
       <Carousel />
       <Categories />
       <FeaturedProducts />
-      <LogoutButton onClick={logoutHandler}>Logout</LogoutButton>
+      <SignUp />
+      <Footer />
+      {/* <LogoutButton onClick={logoutHandler}>Logout</LogoutButton> */}
     </>
   );
 };
