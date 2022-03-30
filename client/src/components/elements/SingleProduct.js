@@ -1,100 +1,80 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { SearchOutlined, ShoppingCartOutlined } from "@material-ui/icons";
-
-const SingleProduct = ({ product }) => {
+const SingleProduct = () => {
   return (
     <Container>
-      <InfoContainer>
-        <TitleWrapper>
-          <Title>{product.title}</Title>
-        </TitleWrapper>
+      <ProductImage src="https://cdn.shopify.com/s/files/1/1693/8459/products/cross-wanderlust-fountain-pen-in-malta_633.jpg?v=1620345762" />
 
-        <IconWrapper>
-          <Icon>
-            <ShoppingCartOutlined />
-          </Icon>
-          <Icon>
-            <SearchOutlined />
-          </Icon>
-        </IconWrapper>
-      </InfoContainer>
-      <Image src={product.imgUrl} />
+      <ProductInfo>
+        <ProductName>Name</ProductName>
+
+        <ProductDescription>
+          The LAMY safari is a timelessly modern pen for the young – and the
+          young at heart – and is in a class of its own.
+        </ProductDescription>
+
+        <ProductPrice>$30</ProductPrice>
+
+        <ViewButton to={`/products/1`}>View</ViewButton>
+      </ProductInfo>
     </Container>
   );
 };
 
 export default SingleProduct;
 
-const InfoContainer = styled.div`
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: 3;
-  display: column;
-  align-items: center;
-  padding-top: 30%;
-  justify-content: center;
-  transition: all 0.5s ease;
-  cursor: pointer;
-`;
-
 const Container = styled.div`
-  line-height: 2;
-  background: #f4f4f4;
+  width: 300px;
+  padding: 1rem;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  margin: 8px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-direction: column;
+`;
+
+const ProductImage = styled.img`
   width: 100%;
-  height: auto;
-  position: relative;
-  transition: 0.2s escape;
+  height: 170px;
+  object-fit: contain;
+  border-radius: 8px;
+`;
+
+const ProductInfo = styled.div`
+  margin-bottom: 8px;
+`;
+
+const ProductName = styled.p`
+  font-size: 1rem;
+  overflow: hidden;
+`;
+
+const ProductDescription = styled.p`
+  font-size: 0.8rem;
+`;
+
+const ProductPrice = styled.p`
+  font-weight: bold;
+`;
+
+const ViewButton = styled(Link)`
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  color: #171717;
+  width: 100%;
+  padding: 8px 16px;
+  background-color: #f4f4f4;
+  border: 1px solid #171717;
+  font-size: 1rem;
 
   &:hover {
-    transform: scale(1.03);
+    background: #171717;
+    color: #f4f4f4;
   }
-
-  &:hover ${InfoContainer} {
-    opacity: 1;
-  }
-`;
-
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-`;
-
-const Icon = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
-  transition: all 0.5s ease;
-
-  &:hover {
-    background-color: #e9f5f5;
-    transform: scale(1.1);
-  }
-`;
-
-const TitleWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const IconWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Title = styled.h1`
-  color: white;
 `;

@@ -5,7 +5,7 @@ import styled from "styled-components";
 // ICONS
 import { FaPenNib } from "react-icons/fa";
 import { FaBars } from "react-icons/fa";
-import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import { BsFillCartFill, BsSearch } from "react-icons/bs";
 
 const Navbar = ({ toggle }) => {
   return (
@@ -81,7 +81,7 @@ const SearchInput = styled.input`
   border: none;
 `;
 
-const SearchIcon = styled(Search)`
+const SearchIcon = styled(BsSearch)`
   color: white;
   font-size: 16px;
 `;
@@ -141,7 +141,7 @@ const CartContainer = styled.span`
   }
 `;
 
-const CartIcon = styled(ShoppingCartOutlined)``;
+const CartIcon = styled(BsFillCartFill)``;
 
 const CartBadge = styled.span`
   width: 30px;

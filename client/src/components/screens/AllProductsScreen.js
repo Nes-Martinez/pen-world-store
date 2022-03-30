@@ -1,16 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import FeaturedProducts from "../elements/FeaturedProducts";
-import Footer from "../elements/Footer";
-import Navbar from "../elements/Navbar";
-import SignUp from "../elements/SignUp";
 
-const AllProducts = () => {
+import SingleProduct from "../elements/SingleProduct";
+
+const AllProductsScreen = () => {
   return (
     <Container>
-      <Navbar />
       <ProductsHeader>All Products</ProductsHeader>
-      <OptionsWrapper>
+      {/* <OptionsWrapper>
         <Options>
           <Text>Search Products: </Text>
           <Select>
@@ -31,15 +28,13 @@ const AllProducts = () => {
             <Option>Broad</Option>
           </Select>
         </Options>
-      </OptionsWrapper>
-      <FeaturedProducts />
-      <SignUp />
-      <Footer />
+      </OptionsWrapper> */}
+      <SingleProduct />
     </Container>
   );
 };
 
-export default AllProducts;
+export default AllProductsScreen;
 
 const Container = styled.div``;
 

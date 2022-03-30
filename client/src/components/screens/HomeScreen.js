@@ -3,12 +3,10 @@ import axios from "axios";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../elements/Navbar";
-import Announcement from "../elements/Announcement";
+
 import Carousel from "../elements/Carousel";
 import Categories from "../elements/Categories";
 import FeaturedProducts from "../elements/FeaturedProducts";
-import SignUp from "../elements/SignUp";
-import Footer from "../elements/Footer";
 
 const HomeScreen = ({ toggle }) => {
   const navigate = useNavigate();
@@ -22,12 +20,10 @@ const HomeScreen = ({ toggle }) => {
     <>
       {/* <Announcement /> */}
 
-      <Navbar toggle={toggle} />
       <Carousel />
       <Categories />
       <FeaturedProducts />
-      <SignUp />
-      <Footer />
+
       {/* <LogoutButton onClick={logoutHandler}>Logout</LogoutButton> */}
     </>
   );

@@ -8,3 +8,8 @@ body {
   font-family: "Raleway", sans-serif;
   line-height: 1.7;
 }
+
+img {
+  width: 100%;
+  object-fit: contain;
+}

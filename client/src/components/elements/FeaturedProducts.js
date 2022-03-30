@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { productDetails } from "../../data.js";
-import SingleProduct from "./SingleProduct";
+import SingleProduct from "./SingleFeatured";
 
 const FeaturedProducts = () => {
   return (

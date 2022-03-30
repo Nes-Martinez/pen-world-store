@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link as LinkR } from "react-router-dom";
 
 import { FaTimes } from "react-icons/fa";
+import { BsFillCartFill } from "react-icons/bs";
 
 const MobileMenu = ({ isOpen, toggle }) => {
   return (
@@ -28,7 +29,8 @@ const MobileMenu = ({ isOpen, toggle }) => {
         </li>
         <li>
           <MenuLink to="/cart" onClick={toggle}>
-            Cart
+            <CartIcon /> Cart:
+            <CartBadge>0</CartBadge>
           </MenuLink>
         </li>
       </SidebarWrapper>
@@ -39,6 +41,9 @@ const MobileMenu = ({ isOpen, toggle }) => {
 export default MobileMenu;
 
 const MenuContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 70%;
   height: 100vh;
   background: #fff;
@@ -93,9 +98,33 @@ const MenuLink = styled(LinkR)`
   color: purple;
   cursor: pointer;
   transition: color 300ms;
+  padding: 10px 10px;
 
   &:hover {
+    background: purple;
     color: #cd7f32;
+    transition: 0.3s ease-out;
+  }
+`;
+
+const CartIcon = styled(BsFillCartFill)`
+  margin-right: 8px;
+`;
+
+const CartBadge = styled.span`
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  background-color: #cd7f32;
+  border-radius: 50%;
+  margin-left: 8px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: #cd7f32;
     transition: 0.3s ease-out;
   }
 `;
