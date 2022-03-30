@@ -10,7 +10,7 @@ import FeaturedProducts from "../elements/FeaturedProducts";
 import SignUp from "../elements/SignUp";
 import Footer from "../elements/Footer";
 
-const HomeScreen = () => {
+const HomeScreen = ({ toggle }) => {
   const navigate = useNavigate();
 
   const logoutHandler = () => {
@@ -22,7 +22,7 @@ const HomeScreen = () => {
     <>
       {/* <Announcement /> */}
 
-      <Navbar />
+      <Navbar toggle={toggle} />
       <Carousel />
       <Categories />
       <FeaturedProducts />

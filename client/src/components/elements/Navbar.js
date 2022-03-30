@@ -1,12 +1,13 @@
 import React from "react";
+import { Link as LinkR } from "react-router-dom";
 import styled from "styled-components";
 
 // ICONS
 import { FaPenNib } from "react-icons/fa";
-import { Badge } from "@material-ui/core";
+import { FaBars } from "react-icons/fa";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 
-const Navbar = () => {
+const Navbar = ({ toggle }) => {
   return (
     <Container>
       <NavWrapper>
@@ -23,14 +24,18 @@ const Navbar = () => {
           </Logo>
         </CenterCol>
         <RightCol>
-          <MenuLink>Register</MenuLink>
-          <MenuLink>Login</MenuLink>
-          <MenuLink>
-            <Badge badgeContent={5} color="primary">
-              <CartIcon />
-            </Badge>
-          </MenuLink>
+          <MenuLink to="/register">Register</MenuLink>
+          <MenuLink to="/login">Login</MenuLink>
+          <CartContainer>
+            <CartLink to="/cart">
+              <CartIcon /> Cart:
+              <CartBadge>0</CartBadge>
+            </CartLink>
+          </CartContainer>
         </RightCol>
+        <MobileMenu onClick={toggle}>
+          <FaBars />
+        </MobileMenu>
       </NavWrapper>
     </Container>
   );
@@ -45,7 +50,7 @@ const Container = styled.div`
 `;
 
 const NavWrapper = styled.div`
-  padding: 30px 50px;
+  padding: 1.5rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -54,7 +59,10 @@ const NavWrapper = styled.div`
 const LeftCol = styled.div`
   flex: 1;
   display: flex;
-  align-items: center;
+
+  @media screen and (max-width: 960px) {
+    display: none;
+  }
 `;
 
 const NavText = styled.span`
@@ -85,7 +93,7 @@ const CenterCol = styled.div`
 `;
 
 const Logo = styled.h1`
-  font-size: clamp(1.5rem, 5vw, 2.7rem);
+  font-size: clamp(1.5rem, 3vw, 2.7rem);
   font-weight: 700;
 `;
 
@@ -94,24 +102,76 @@ const RightCol = styled.div`
   display: flex;
   text-align: center;
   justify-content: flex-end;
+
+  @media screen and (max-width: 960px) {
+    display: none;
+  }
 `;
 
-const MenuLink = styled.div`
-  font-size: 14px;
+const MenuLink = styled(LinkR)`
+  font-size: 20px;
   cursor: pointer;
-  margin-left: 25px;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+`;
+
+const CartLink = styled(LinkR)`
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+`;
+
+const CartContainer = styled.span`
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  background: purple;
+  padding: 10px;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: yellow;
+    transition: all 0.2s ease-in-out;
+  }
 `;
 
 const CartIcon = styled(ShoppingCartOutlined)``;
 
+const CartBadge = styled.span`
+  width: 30px;
+  height: 30px;
+  background-color: #f4f4f4;
+  border-radius: 50%;
+  margin-left: 8px;
+  color: #171717;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+`;
+
 const PenIcon = styled(FaPenNib)`
+  font-size: clamp(1.5rem, 2.5vw, 2.7rem);
   margin-right: 10px;
 
-  &:hover {
-    transition: all 0.2s ease-in-out;
-  }
-
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 960px) {
     font-size: 1.5rem;
+  }
+`;
+
+const MobileMenu = styled.div`
+  font-size: clamp(1.5rem, 3vw, 2.7rem);
+  display: none;
+  color: #fff;
+  z-index: 50;
+
+  @media screen and (max-width: 960px) {
+    display: flex;
   }
 `;
