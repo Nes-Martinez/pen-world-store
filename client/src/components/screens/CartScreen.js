@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Link as LinkR } from "react-router-dom";
+
+import { useDispatch, useSelector } from "react-redux";
 
 import CartItem from "../elements/CartItem";
 
 const CartScreen = () => {
+  const dispatch = useDispatch();
+
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+
   return (
     <Container>
       <CartContainer>
         <CartLeft>
           <CartTitle>Your Cart</CartTitle>
-          <CartText>
-            Your Cart Is Empty <CartLink to="/">Go Back</CartLink>
-          </CartText>
-          <CartItem />
+          {cartItems.length === 0 ? (
+            <CartText>
+              Your Cart Is Empty <CartLink to="/">Go Back</CartLink>
+            </CartText>
+          ) : (
+            cartItems.map((item) => <CartItem />)
+          )}
         </CartLeft>
 
         <CartRight>

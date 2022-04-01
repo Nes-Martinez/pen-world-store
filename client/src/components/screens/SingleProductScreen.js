@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { getSingleProduct } from "../../redux/actions/productActions";
-import { addToCart } from "../../redux/actions/productActions";
+import { addToCart } from "../../redux/actions/cartActions";
 
 const SingleProductScreen = () => {
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const [quanity, setQuantity] = useState(1);
   const dispatch = useDispatch();
@@ -22,57 +24,72 @@ const SingleProductScreen = () => {
     }
   }, [dispatch, product, id]);
 
+  const addToCartHandler = () => {
+    dispatch(addToCart(product._id));
+    navigate("/cart");
+  };
+
   return (
     <Container>
-      <ProductWrapper>
-        <ProductLeft>
-          <ImageWrapper>
-            <img src="https://cdn.shopify.com/s/files/1/1693/8459/products/cross-wanderlust-fountain-pen-in-malta_633.jpg?v=1620345762" />
-          </ImageWrapper>
-          <InfoLeftWrapper>
-            <ProductName>Pen</ProductName>
-            <ProductDescription>
-              The LAMY safari is a timelessly modern pen for the young – and the
-              young at heart – and is in a class of its own.
-            </ProductDescription>
-            <PriceText>$30</PriceText>
-            <StockText>In Stock? Yes</StockText>
-          </InfoLeftWrapper>
-        </ProductLeft>
-        <ProductRight>
-          <InfoRightWrapper>
-            <OptionsWrapper>
-              <OptionRow>
-                <HeaderText>Select Options: </HeaderText>
-              </OptionRow>
-              <OptionRow>
-                <Select>
-                  <Option disabled selected>
-                    Color
-                  </Option>
-                  <Option>Black</Option>
-                  <Option>Silver</Option>
-                  <Option>Red</Option>
-                </Select>
-              </OptionRow>
-              <OptionRow>
-                <Select>
-                  <Option disabled selected>
-                    Nib Size
-                  </Option>
-                  <Option>Extra Fine</Option>
-                  <Option>Fine</Option>
-                  <Option>Medium</Option>
-                  <Option>Broad</Option>
-                </Select>
-              </OptionRow>
-              <BtnWrapper>
-                <AddButton>Add to Cart</AddButton>
-              </BtnWrapper>
-            </OptionsWrapper>
-          </InfoRightWrapper>
-        </ProductRight>
-      </ProductWrapper>
+      {loading ? (
+        <h2>Loading..</h2>
+      ) : error ? (
+        <h2>{error}</h2>
+      ) : (
+        <>
+          <ProductWrapper>
+            <ProductLeft>
+              <ImageWrapper>
+                <img src={product.imageUrl} />
+              </ImageWrapper>
+              <InfoLeftWrapper>
+                <ProductName>{product.name}</ProductName>
+                <ProductDescription>{product.description}</ProductDescription>
+                <PriceText>${product.price}</PriceText>
+                <StockText>
+                  In Stock?{" "}
+                  {product.inventoryNum > 0 ? "Available!" : "Out of Stock"}
+                </StockText>
+              </InfoLeftWrapper>
+            </ProductLeft>
+            <ProductRight>
+              <InfoRightWrapper>
+                <OptionsWrapper>
+                  <OptionRow>
+                    <HeaderText>Select Options: </HeaderText>
+                  </OptionRow>
+                  <OptionRow>
+                    <Select>
+                      <Option disabled selected>
+                        Color
+                      </Option>
+                      <Option>Black</Option>
+                      <Option>Silver</Option>
+                      <Option>Red</Option>
+                    </Select>
+                  </OptionRow>
+                  <OptionRow>
+                    <Select>
+                      <Option disabled selected>
+                        Nib Size
+                      </Option>
+                      <Option>Extra Fine</Option>
+                      <Option>Fine</Option>
+                      <Option>Medium</Option>
+                      <Option>Broad</Option>
+                    </Select>
+                  </OptionRow>
+                  <BtnWrapper>
+                    <AddButton type="button" onClick={addToCartHandler}>
+                      Add to Cart
+                    </AddButton>
+                  </BtnWrapper>
+                </OptionsWrapper>
+              </InfoRightWrapper>
+            </ProductRight>
+          </ProductWrapper>
+        </>
+      )}
     </Container>
   );
 };
@@ -195,7 +212,7 @@ const BtnWrapper = styled.div`
   margin: 20px 20px;
 `;
 
-const AddButton = styled.div`
+const AddButton = styled.button`
   max-width: 80%;
   border-radius: 10px;
   background: purple;
