@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+
+import { getSingleProduct } from "../../redux/actions/productActions";
+import { addToCart } from "../../redux/actions/productActions";
+
 const SingleProductScreen = () => {
+  const { id } = useParams();
+
+  const [quanity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
+
+  const productDetails = useSelector((state) => state.getProduct);
+  const { loading, error, product } = productDetails;
+
+  useEffect(() => {
+    if (product && id !== product._id) {
+      dispatch(getSingleProduct(id));
+    }
+  }, [dispatch, product, id]);
+
   return (
     <Container>
       <ProductWrapper>

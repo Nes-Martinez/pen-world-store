@@ -2,22 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const SingleProduct = () => {
+const SingleProduct = ({ product }) => {
   return (
     <Container>
-      <ProductImage src="https://cdn.shopify.com/s/files/1/1693/8459/products/cross-wanderlust-fountain-pen-in-malta_633.jpg?v=1620345762" />
+      <ProductImage src={product.imageUrl} />
 
       <ProductInfo>
-        <ProductName>Name</ProductName>
+        <ProductName>{product.name}</ProductName>
 
         <ProductDescription>
-          The LAMY safari is a timelessly modern pen for the young – and the
-          young at heart – and is in a class of its own.
+          {product.description.substring(0, 60)}...
         </ProductDescription>
 
-        <ProductPrice>$30</ProductPrice>
+        <ProductPrice>${product.price}</ProductPrice>
 
-        <ViewButton to={`/products/1`}>View</ViewButton>
+        <ViewButton to={`/products/${product._id}`}>View</ViewButton>
       </ProductInfo>
     </Container>
   );

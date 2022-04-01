@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import styled from "styled-components";
 
 import SingleProduct from "../elements/SingleProduct";
 
+import { getAllProducts } from "../../redux/actions/productActions";
+
 const AllProductsScreen = () => {
+  const dispatch = useDispatch();
+
+  const getProducts = useSelector((state) => state.getProducts);
+  const { products, loading, error } = getProducts;
+
+  useEffect(() => {
+    dispatch(getAllProducts());
+  }, [dispatch]);
+
   return (
     <Container>
       <ProductsHeader>All Products</ProductsHeader>
+      {loading ? (
+        <h2>Loading...</h2>
+      ) : error ? (
+        <h2>{error}</h2>
+      ) : (
+        products.map((product) => <SingleProduct product={product} />)
+      )}
       {/* <OptionsWrapper>
         <Options>
           <Text>Search Products: </Text>
@@ -29,7 +49,6 @@ const AllProductsScreen = () => {
           </Select>
         </Options>
       </OptionsWrapper> */}
-      <SingleProduct />
     </Container>
   );
 };
