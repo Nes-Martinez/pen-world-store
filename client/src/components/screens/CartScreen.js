@@ -6,11 +6,21 @@ import { useDispatch, useSelector } from "react-redux";
 
 import CartItem from "../elements/CartItem";
 
+import { addToCart, removeFromCart } from "../../redux/actions/cartActions";
+
 const CartScreen = () => {
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+
+  const quantityHandler = (id, quantity) => {
+    dispatch(addToCart(id, quantity));
+  };
+
+  const removeItemHandler = (id) => {
+    dispatch(removeFromCart(id));
+  };
 
   return (
     <Container>
@@ -22,7 +32,13 @@ const CartScreen = () => {
               Your Cart Is Empty <CartLink to="/">Go Back</CartLink>
             </CartText>
           ) : (
-            cartItems.map((item) => <CartItem />)
+            cartItems.map((product) => (
+              <CartItem
+                product={product}
+                quantityHandler={quantityHandler}
+                removeItemHandler={removeItemHandler}
+              />
+            ))
           )}
         </CartLeft>
 

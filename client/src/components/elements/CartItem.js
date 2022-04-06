@@ -4,20 +4,27 @@ import styled from "styled-components";
 
 import { FaTrash } from "react-icons/fa";
 
-const CartItem = () => {
+const CartItem = ({ product, quantityHandler, removeItemHandler }) => {
   return (
     <CartItemContainer>
       <CartItemImage>
-        <img src="https://cdn.shopify.com/s/files/1/1693/8459/products/cross-wanderlust-fountain-pen-in-malta_633.jpg?v=1620345762" />
+        <img src={product.imageUrl} />
       </CartItemImage>
-      <CartItemName to={`/products/1`}>
-        <ItemName>Pen</ItemName>
+      <CartItemName to={`/products/${product.id}`}>
+        <ItemName>{product.name}</ItemName>
       </CartItemName>
-      <ItemPrice>$100</ItemPrice>
-      <CartSelect>
-        <Option value="1">1</Option>
+      <ItemPrice>{product.price}</ItemPrice>
+      <CartSelect
+        value={product.quantity}
+        onChange={(evt) => quantityHandler(product.id, evt.target.value)}
+      >
+        {[...Array(product.inventoryNum).keys()].map((x) => (
+          <Option key={x + 1} value={x + 1}>
+            {x + 1}
+          </Option>
+        ))}
       </CartSelect>
-      <DeleteButton>
+      <DeleteButton onClick={() => removeItemHandler(product.id)}>
         <TrashIcon />
       </DeleteButton>
     </CartItemContainer>
@@ -55,7 +62,7 @@ const CartSelect = styled.select`
 
 const Option = styled.option``;
 
-const DeleteButton = styled.div`
+const DeleteButton = styled.button`
   padding: 10px 17px;
   color: red;
   background: #f4f4f4;

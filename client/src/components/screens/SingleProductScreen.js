@@ -12,7 +12,7 @@ const SingleProductScreen = () => {
 
   const navigate = useNavigate();
 
-  const [quanity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
 
   const productDetails = useSelector((state) => state.getProduct);
@@ -25,7 +25,7 @@ const SingleProductScreen = () => {
   }, [dispatch, product, id]);
 
   const addToCartHandler = () => {
-    dispatch(addToCart(product._id));
+    dispatch(addToCart(product._id, quantity));
     navigate("/cart");
   };
 
@@ -59,20 +59,29 @@ const SingleProductScreen = () => {
                     <HeaderText>Select Options: </HeaderText>
                   </OptionRow>
                   <OptionRow>
+                    <OptionsText>Color: </OptionsText>
                     <Select>
-                      <Option disabled selected>
-                        Color
-                      </Option>
                       <Option>Black</Option>
                       <Option>Silver</Option>
                       <Option>Red</Option>
                     </Select>
                   </OptionRow>
                   <OptionRow>
+                    <OptionsText>Quantity: </OptionsText>
+                    <Select
+                      value={quantity}
+                      onChange={(evt) => setQuantity(evt.target.value)}
+                    >
+                      {[...Array(product.inventoryNum).keys()].map((x) => (
+                        <Option key={x + 1} value={x + 1}>
+                          {x + 1}
+                        </Option>
+                      ))}
+                    </Select>
+                  </OptionRow>
+                  <OptionRow>
+                    <OptionsText>Nib: </OptionsText>
                     <Select>
-                      <Option disabled selected>
-                        Nib Size
-                      </Option>
                       <Option>Extra Fine</Option>
                       <Option>Fine</Option>
                       <Option>Medium</Option>
@@ -189,14 +198,14 @@ const OptionRow = styled.div`
   margin: 20px 20px;
 `;
 
-const HeaderText = styled.span`
+const HeaderText = styled.div`
   font-size: 20px;
   font-weight: 600;
 `;
 
-const OptionsText = styled.span`
-  font-size: 20px;
-  font-weight: 600;
+const OptionsText = styled.div`
+  font-size: 15px;
+  font-weight: 400;
 `;
 
 const Select = styled.select`
