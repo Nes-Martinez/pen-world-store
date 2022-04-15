@@ -12,20 +12,15 @@ const Navbar = ({ toggle }) => {
     <Container>
       <NavWrapper>
         <LeftCol>
-          <NavText>English</NavText>
-          <SearchContainer>
-            <SearchInput />
-            <SearchIcon />
-          </SearchContainer>
-        </LeftCol>
-        <CenterCol>
-          <Logo>
+          <Logo to="/">
             <PenIcon /> PEN WORLD
           </Logo>
-        </CenterCol>
+        </LeftCol>
         <RightCol>
+          <MenuLink to="/products">All Products</MenuLink>
           <MenuLink to="/register">Register</MenuLink>
           <MenuLink to="/login">Login</MenuLink>
+          <MenuLink to="/">Newsletter</MenuLink>
           <CartContainer>
             <CartLink to="/cart">
               <CartIcon /> Cart:
@@ -50,7 +45,7 @@ const Container = styled.div`
 `;
 
 const NavWrapper = styled.div`
-  padding: 1.5rem 1rem;
+  padding: 1rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -58,50 +53,26 @@ const NavWrapper = styled.div`
 
 const LeftCol = styled.div`
   flex: 1;
-  display: flex;
-
-  @media screen and (max-width: 960px) {
-    display: none;
-  }
+  text-align: right;
+  padding-right: 3rem;
 `;
 
-const NavText = styled.span`
-  font-size: 14px;
-`;
-
-const SearchContainer = styled.div`
-  border: 0.5px solid lightgray;
-  display: flex;
-  align-items: center;
-  margin-left: 25px;
-  padding: 5px;
-`;
-
-const SearchInput = styled.input`
-  border: none;
-`;
-
-const SearchIcon = styled(BsSearch)`
-  color: white;
-  font-size: 16px;
-`;
-
-const CenterCol = styled.div`
-  display: flex;
-  flex: 1;
-  text-align: center;
-`;
-
-const Logo = styled.h1`
-  font-size: clamp(1.5rem, 3vw, 2.7rem);
+const Logo = styled(LinkR)`
+  color: #fff;
+  font-size: clamp(1.3rem, 3vw, 2.7rem);
   font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    color: #cd7f32;
+  }
 `;
 
 const RightCol = styled.div`
   flex: 1;
   display: flex;
   text-align: center;
-  justify-content: flex-end;
 
   @media screen and (max-width: 960px) {
     display: none;
@@ -132,7 +103,7 @@ const CartContainer = styled.span`
   align-items: center;
   margin-left: 20px;
   background: purple;
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 8px;
 
   &:hover {
@@ -157,7 +128,7 @@ const CartBadge = styled.span`
 `;
 
 const PenIcon = styled(FaPenNib)`
-  font-size: clamp(1.5rem, 2.5vw, 2.7rem);
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
   margin-right: 10px;
 
   @media screen and (max-width: 960px) {

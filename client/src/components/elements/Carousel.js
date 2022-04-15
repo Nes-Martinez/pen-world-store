@@ -65,10 +65,14 @@ export default Carousel;
 
 const Container = styled.div`
   width: 100%;
-  height: 80vh;
+  height: 65vh;
   display: flex;
   position: relative;
   overflow: hidden;
+
+  @media screen and (max-width: 968px) {
+    height: auto;
+  }
 `;
 
 const Arrow = styled.div`
@@ -110,42 +114,51 @@ const SectionWrapper = styled.div`
 
 const Slide = styled.div`
   width: 100vw;
-  height: 80vh;
   display: flex;
   align-items: center;
   background-color: #${(props) => props.bgColor};
+
+  @media screen and (max-width: 968px) {
+    padding: 0rem 0rem;
+  }
 `;
 
 const ImgContainer = styled.div`
   height: 100%;
-  flex: 1;
+  flex: 0.9;
 `;
 
 const Image = styled.img`
-  height: 100%;
+  /* height: 100%; */
 `;
 
 const HeroItems = styled.div`
   vertical-align: top;
-  flex: 1;
-  padding: 50px;
+  flex: 0.5;
+  padding-left: 40px;
+  padding-right: 40px;
 
   @media screen and (max-width: 768px) {
-    display: none;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 `;
 
 const HeroH1 = styled.h1`
-  font-size: clamp(1rem, 5vw, 2.7rem);
+  font-size: clamp(1rem, 3vw, 2.7rem);
   letter-spacing: 10px;
   font-weight: 700;
 `;
 
 const HeroText = styled.p`
-  margin: 50px 0px;
+  margin: 30px 0px;
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 3px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const BtnWrapper = styled.div`
@@ -172,5 +185,21 @@ const MainButton = styled(Link)`
     transition: all 0.2s ease-in-out;
     background: #ffffff;
     color: purple;
+  }
+
+  @media screen and (max-width: 768px) {
+    border-radius: 20px;
+    background: purple;
+    white-space: nowrap;
+    padding: 12px 20px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    justify-content: right;
+    align-items: right;
+    transition: all 0.2s ease-in-out;
   }
 `;

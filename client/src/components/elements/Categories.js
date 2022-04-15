@@ -21,7 +21,7 @@ export default Categories;
 
 const Container = styled.div`
   width: 100vw;
-  padding-top: 60px;
+  padding-top: 30px;
   padding-bottom: 0px;
   height: auto;
   background-color: white;
@@ -46,7 +46,7 @@ const SectionWrapper = styled.div`
 `;
 
 const SectionHeading = styled.div`
-  font-size: clamp(1.2rem, 45vw, 3rem);
+  font-size: clamp(1rem, 7vw, 2.7rem);
   text-align: center;
   margin-bottom: 3rem;
   font-weight: 700;
