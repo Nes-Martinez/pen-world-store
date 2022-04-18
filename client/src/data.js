@@ -89,19 +89,4 @@ export const productDetails = [
     imgUrl: pen6,
     title: "Pelikan 400",
   },
-  {
-    id: 7,
-    imgUrl: pen7,
-    title: "Pilot e95s",
-  },
-  {
-    id: 8,
-    imgUrl: pen8,
-    title: "Scrivener Brush",
-  },
-  {
-    id: 9,
-    imgUrl: pen9,
-    title: "Sailor 1911 Maki-E",
-  },
 ];
