@@ -21,20 +21,15 @@ export default Categories;
 
 const Container = styled.div`
   width: 100vw;
-  padding-top: 30px;
-  padding-bottom: 0px;
   height: auto;
-  background-color: white;
-
-  /* @media screen and (max-width: 768px) {
-    padding: 0.1rem calc((100vw - 1300px) / 2);
-  } */
 `;
 
 const SectionWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
+  grid-gap: 15px;
+  padding: 0 1.5rem;
 
   @media screen and (max-width: 1200px) {
     grid-template-columns: 1fr 1fr;
@@ -43,13 +38,22 @@ const SectionWrapper = styled.div`
   @media screen and (max-width: 868px) {
     grid-template-columns: 1fr;
   }
+
+  @media screen and (max-width: 768px) {
+    padding: 2rem 2rem;
+  }
 `;
 
 const SectionHeading = styled.div`
   font-size: clamp(1rem, 7vw, 2.7rem);
   text-align: center;
-  margin-bottom: 3rem;
+  padding: 3rem 3rem;
   font-weight: 700;
   letter-spacing: 2px;
   color: #06114f;
+  background-color: white;
+
+  @media screen and (max-width: 868px) {
+    margin-bottom: 1rem;
+  }
 `;

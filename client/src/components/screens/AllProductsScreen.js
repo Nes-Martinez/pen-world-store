@@ -20,62 +20,48 @@ const AllProductsScreen = () => {
   return (
     <Container>
       <ProductsHeader>All Products</ProductsHeader>
-      {loading ? (
-        <h2>Loading...</h2>
-      ) : error ? (
-        <h2>{error}</h2>
-      ) : (
-        products.map((product) => <SingleProduct product={product} />)
-      )}
-      {/* <OptionsWrapper>
-        <Options>
-          <Text>Search Products: </Text>
-          <Select>
-            <Option disabled selected>
-              Origin
-            </Option>
-            <Option>American</Option>
-            <Option>Japanese</Option>
-            <Option>German</Option>
-          </Select>
-          <Select>
-            <Option disabled selected>
-              Nib Size
-            </Option>
-            <Option>Extra Fine</Option>
-            <Option>Fine</Option>
-            <Option>Medium</Option>
-            <Option>Broad</Option>
-          </Select>
-        </Options>
-      </OptionsWrapper> */}
+      <Wrapper>
+        {loading ? (
+          <h2>Loading...</h2>
+        ) : error ? (
+          <h2>{error}</h2>
+        ) : (
+          products.map((product) => <SingleProduct product={product} />)
+        )}
+      </Wrapper>
     </Container>
   );
 };
 
 export default AllProductsScreen;
 
-const Container = styled.div``;
+const Container = styled.div`
+  width: 100vw;
+  padding: 60px 1px 1px 1px;
+  height: auto;
+  padding: 2rem 15rem;
+
+  @media screen and (max-width: 768px) {
+    padding: 2rem 2rem;
+  }
+`;
 
 const ProductsHeader = styled.h1`
+  font-size: clamp(1rem, 7vw, 2.7rem);
   margin: 20px;
+  text-align: center;
 `;
 
-const OptionsWrapper = styled.div``;
+const Wrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1px;
+  justify-items: center;
 
-const Options = styled.div`
-  margin: 20px;
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (max-width: 868px) {
+    grid-template-columns: 1fr;
+  }
 `;
-
-const Text = styled.span`
-  font-size: 20px;
-  font-weight: 600;
-  margin-right: 20px;
-`;
-
-const Select = styled.select`
-  padding: 10px;
-  margin-right: 20px;
-`;
-
-const Option = styled.option``;

@@ -18,7 +18,6 @@ export default CategoryItem;
 const Container = styled.div`
   line-height: 2;
   width: 100%;
-  height: auto;
   position: relative;
   transition: 0.2s escape;
 
@@ -28,6 +27,10 @@ const Container = styled.div`
 
   &:hover {
     filter: brightness(100%);
+  }
+
+  @media screen and (max-width: 1200px) {
+    max-height: 60vh;
   }
 `;
 
@@ -54,7 +57,7 @@ const Info = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  filter: brightness(80%);
+  filter: brightness(60%);
 
   &:hover {
     filter: brightness(100%);

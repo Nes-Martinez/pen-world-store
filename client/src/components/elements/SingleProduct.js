@@ -25,7 +25,8 @@ const SingleProduct = ({ product }) => {
 export default SingleProduct;
 
 const Container = styled.div`
-  width: 300px;
+  width: 100%;
+  height: 100%;
   padding: 1rem;
   background: #fff;
   cursor: pointer;
@@ -39,7 +40,6 @@ const Container = styled.div`
 
 const ProductImage = styled.img`
   width: 100%;
-  height: 170px;
   object-fit: contain;
   border-radius: 8px;
 `;

@@ -105,7 +105,10 @@ const SingleProductScreen = () => {
 
 export default SingleProductScreen;
 
-const Container = styled.div``;
+const Container = styled.div`
+  padding-bottom: 3rem;
+  border-bottom: 1px solid;
+`;
 
 const ProductWrapper = styled.div`
   margin: 1rem auto;
@@ -138,7 +141,6 @@ const ImageWrapper = styled.div`
 const InfoLeftWrapper = styled.div`
   margin: 1rem;
   flex: 0.4;
-  background: #fff;
   height: fit-content;
   font-size: 0.9rem;
 
