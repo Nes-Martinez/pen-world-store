@@ -1,17 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import styled from "styled-components";
 
-import { productDetails } from "../../data.js";
-import SingleProduct from "./SingleFeatured";
+import SingleFeatured from "./SingleFeatured";
+import { getFeaturedProducts } from "../../redux/actions/productActions.js";
 
 const FeaturedProducts = () => {
+  const dispatch = useDispatch();
+
+  const getFeatured = useSelector((state) => state.getFeatured);
+  console.log("Featured", getFeatured);
+  const { products, loading, error } = getFeatured;
+
+  useEffect(() => {
+    dispatch(getFeaturedProducts());
+  }, [dispatch]);
+
   return (
     <Container>
       <SectionHeading>Featured Products</SectionHeading>
       <Wrapper>
-        {productDetails.map((product) => (
-          <SingleProduct product={product} key={product.id} />
-        ))}
+        {loading ? (
+          <h2>Loading...</h2>
+        ) : error ? (
+          <h2>{error}</h2>
+        ) : (
+          products.map((product) => <SingleFeatured product={product} />)
+        )}
       </Wrapper>
     </Container>
   );

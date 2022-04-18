@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 
 import SingleProduct from "../elements/SingleProduct";
-
 import { getAllProducts } from "../../redux/actions/productActions";
 
 const AllProductsScreen = () => {

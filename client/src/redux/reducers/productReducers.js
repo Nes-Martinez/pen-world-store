@@ -25,6 +25,34 @@ export const getAllProductsReducer = (state = { products: [] }, action) => {
   }
 };
 
+export const getFeaturedProductsReducer = (
+  state = { products: [] },
+  action
+) => {
+  switch (action.type) {
+    case actionTypes.GET_FEATURED_REQUEST:
+      return {
+        loading: true,
+        products: [],
+      };
+
+    case actionTypes.GET_FEATURED_SUCCESS:
+      return {
+        loading: false,
+        products: action.payload,
+      };
+
+    case actionTypes.GET_FEATURED_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
 export const getSingleProductReducer = (state = { product: {} }, action) => {
   switch (action.type) {
     case actionTypes.GET_PRODUCT_DETAILS_REQUEST:

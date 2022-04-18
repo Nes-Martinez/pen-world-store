@@ -24,6 +24,10 @@ const ProductSchema = new mongoose.Schema({
   category: {
     type: Array,
   },
+  isFeatured: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const Product = mongoose.model("Product", ProductSchema);

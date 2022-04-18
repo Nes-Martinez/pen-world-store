@@ -23,6 +23,15 @@ const getProducts = async (req, res, next) => {
   }
 };
 
+const getFeaturedProducts = async (req, res, next) => {
+  try {
+    const featuredProducts = await Product.find({ isFeatured: true });
+    res.status(200).json(featuredProducts);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const getSingleProduct = async (req, res, next) => {
   try {
     const product = await Product.findById({ _id: req.params.id });
@@ -79,6 +88,7 @@ const deleteProduct = async (req, res, next) => {
 
 module.exports = {
   getProducts,
+  getFeaturedProducts,
   getSingleProduct,
   createProduct,
   updateProduct,

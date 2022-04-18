@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 import { SearchOutlined, ShoppingCartOutlined } from "@material-ui/icons";
 
-const SingleProduct = ({ product }) => {
+const SingleFeatured = ({ product }) => {
   return (
     <Container>
       <InfoContainer>
         <TitleWrapper>
-          <Title>{product.title}</Title>
+          <Title>{product.name}</Title>
         </TitleWrapper>
 
         <IconWrapper>
@@ -20,12 +20,12 @@ const SingleProduct = ({ product }) => {
           </Icon>
         </IconWrapper>
       </InfoContainer>
-      <Image src={product.imgUrl} />
+      <Image src={product.imageUrl} />
     </Container>
   );
 };
 
-export default SingleProduct;
+export default SingleFeatured;
 
 const InfoContainer = styled.div`
   opacity: 0;

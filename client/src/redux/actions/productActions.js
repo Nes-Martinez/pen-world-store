@@ -22,6 +22,27 @@ export const getAllProducts = () => async (dispatch) => {
   }
 };
 
+export const getFeaturedProducts = () => async (dispatch) => {
+  try {
+    dispatch({ type: actionTypes.GET_FEATURED_REQUEST });
+
+    const { data } = await axios.get("/api/products/featured");
+
+    dispatch({
+      type: actionTypes.GET_FEATURED_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: actionTypes.GET_FEATURED_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
 export const getSingleProduct = (id) => async (dispatch) => {
   try {
     dispatch({ type: actionTypes.GET_PRODUCT_DETAILS_REQUEST });
