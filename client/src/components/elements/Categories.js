@@ -29,7 +29,7 @@ const SectionWrapper = styled.div`
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   grid-gap: 15px;
-  padding: 0 1.5rem;
+  padding: 0rem 10rem;
 
   @media screen and (max-width: 1200px) {
     grid-template-columns: 1fr 1fr;
@@ -47,7 +47,7 @@ const SectionWrapper = styled.div`
 const SectionHeading = styled.div`
   font-size: clamp(1rem, 7vw, 2.7rem);
   text-align: center;
-  padding: 3rem 3rem;
+  padding: 2rem 2rem;
   font-weight: 700;
   letter-spacing: 2px;
   color: #06114f;

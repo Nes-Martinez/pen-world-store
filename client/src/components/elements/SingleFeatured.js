@@ -1,9 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import styled from "styled-components";
 
 import { SearchOutlined, ShoppingCartOutlined } from "@material-ui/icons";
 
+import { addToCart } from "../../redux/actions/cartActions";
+
 const SingleFeatured = ({ product }) => {
+  console.log("product", product._id);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const addToCartHandler = () => {
+    dispatch(addToCart(product._id));
+    navigate("/cart");
+  };
+
   return (
     <Container>
       <InfoContainer>
@@ -12,15 +28,15 @@ const SingleFeatured = ({ product }) => {
         </TitleWrapper>
 
         <IconWrapper>
-          <Icon>
+          <Icon onClick={addToCartHandler}>
             <ShoppingCartOutlined />
           </Icon>
-          <Icon>
+          <IconLink to={`/products/${product._id}`}>
             <SearchOutlined />
-          </Icon>
+          </IconLink>
         </IconWrapper>
       </InfoContainer>
-      <Image src={product.imageUrl} />
+      <Image src={product.featuredImage} />
     </Container>
   );
 };
@@ -65,6 +81,23 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: fill;
+`;
+
+const IconLink = styled(Link)`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  transition: all 0.5s ease;
+
+  &:hover {
+    background-color: #e9f5f5;
+    transform: scale(1.1);
+  }
 `;
 
 const Icon = styled.div`

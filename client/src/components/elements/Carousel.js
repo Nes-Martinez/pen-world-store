@@ -65,13 +65,13 @@ export default Carousel;
 
 const Container = styled.div`
   width: 100%;
-  height: 65vh;
+  height: 60vh;
   display: flex;
   position: relative;
   overflow: hidden;
 
   @media screen and (max-width: 968px) {
-    height: auto;
+    height: 19.5vh;
   }
 `;
 
@@ -106,7 +106,6 @@ const SectionWrapper = styled.div`
   margin-left: auto;
 
   justify-content: center;
-  height: 100%;
   display: flex;
   transition: all 1.5s ease;
   transform: translateX(${(props) => props.imgIndex * -100}vw);
@@ -126,6 +125,10 @@ const Slide = styled.div`
 const ImgContainer = styled.div`
   height: 100%;
   flex: 0.9;
+
+  @media screen and (max-width: 768px) {
+    flex: 1;
+  }
 `;
 
 const Image = styled.img`
@@ -141,6 +144,7 @@ const HeroItems = styled.div`
   @media screen and (max-width: 768px) {
     padding-left: 20px;
     padding-right: 20px;
+    flex: 0.4;
   }
 `;
 
@@ -148,6 +152,10 @@ const HeroH1 = styled.h1`
   font-size: clamp(1rem, 3vw, 2.7rem);
   letter-spacing: 10px;
   font-weight: 700;
+
+  @media screen and (max-width: 768px) {
+    letter-spacing: 5px;
+  }
 `;
 
 const HeroText = styled.p`
@@ -188,12 +196,12 @@ const MainButton = styled(Link)`
   }
 
   @media screen and (max-width: 768px) {
-    border-radius: 20px;
+    border-radius: 15px;
     background: purple;
     white-space: nowrap;
     padding: 12px 20px;
     color: #ffffff;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 500;
     outline: none;
     border: none;

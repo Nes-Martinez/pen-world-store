@@ -28,6 +28,11 @@ const ProductSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  featuredImage: {
+    type: String,
+    default:
+      "https://drive.google.com/file/d/1mNQCqgdvayiaTUP9w1Ua0wXfYuTmbgMw/view?usp=sharing",
+  },
 });
 
 const Product = mongoose.model("Product", ProductSchema);

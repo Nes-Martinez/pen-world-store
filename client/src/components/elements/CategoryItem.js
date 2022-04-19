@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const CategoryItem = ({ item }) => {
@@ -7,7 +8,7 @@ const CategoryItem = ({ item }) => {
       <Image src={item.imgUrl} />
       <Info>
         <Title>{item.title}</Title>
-        <Button>Shop Now</Button>
+        <Button to={item.buttonLink}>{item.buttonText}</Button>
       </Info>
     </Container>
   );
@@ -30,15 +31,16 @@ const Container = styled.div`
   }
 
   @media screen and (max-width: 1200px) {
-    max-height: 60vh;
+    max-height: 50vh;
   }
 `;
 
 const Title = styled.h1`
-  font-size: clamp(1.2rem, 45vw, 3rem);
+  font-size: clamp(1.2rem, 7vw, 2rem);
   color: white;
   margin: 20px;
   z-index: 10;
+  text-align: center;
 `;
 
 const Image = styled.img`
@@ -57,20 +59,20 @@ const Info = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  filter: brightness(60%);
+  filter: brightness(80%);
 
   &:hover {
     filter: brightness(100%);
   }
 `;
 
-const Button = styled.button`
+const Button = styled(Link)`
   border-radius: 20px;
   background: purple;
   white-space: nowrap;
-  padding: 18px 20px;
+  padding: 10px 20px;
   color: #ffffff;
-  font-size: 25px;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
   font-weight: 500;
   outline: none;
   border: none;

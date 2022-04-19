@@ -9,6 +9,8 @@ const products = [
       "https://cdn.shopify.com/s/files/1/2603/2528/products/LAMY-Safari-2021-SavannahGreen-SE-3_1500x.jpg?v=1613601789",
     category: ["German"],
     isFeatured: true,
+    featuredImage:
+      "https://drive.google.com/uc?id=11I_nCW7m0xLa4pIEJ8x4a8t7rKk0ql-d",
   },
   {
     name: "Cross Wanderlust Malta",
@@ -20,6 +22,8 @@ const products = [
       "https://www.cross.com/media/catalog/product/e/m/emki8yl8jm3y38zolmwh_3.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=360&width=700&canvas=700:360",
     category: ["American"],
     isFeatured: true,
+    featuredImage:
+      "https://drive.google.com/uc?id=1h20IydoJvPECxRqRm856wsCi6Cvd2BMM",
   },
   {
     name: "Platinum Matsu-Tora",
@@ -31,6 +35,8 @@ const products = [
       "https://www.nibs.com/sites/default/files/product_images/pens/pen_display/Platinum%20Matsu-Tora%203.jpg",
     category: ["Japanese"],
     isFeatured: true,
+    featuredImage:
+      "https://drive.google.com/uc?id=1lI6xyhK8yLIFD0-EKmkp17WofYWOniTT",
   },
   {
     name: "Parker IM",
@@ -64,6 +70,8 @@ const products = [
       "https://www.lastilograficamilano.it/image/cache/wp/gj/PENNE_ALTA_RISOLUZIONE/PENNE%20ALTA%20RISOLUZIONE/Montegrappa/Extra%20Otto/Montegrappa_Extra_Otto_Shiny_Lines-900x450.webp",
     category: ["Italian"],
     isFeatured: true,
+    featuredImage:
+      "https://drive.google.com/uc?id=1gzobVQsR2pc-ZqjUHst2RcL1kDD9HEbN",
   },
 ];
 
