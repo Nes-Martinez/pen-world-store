@@ -1,11 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 import { Link as LinkR } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { FaTimes } from "react-icons/fa";
 import { BsFillCartFill } from "react-icons/bs";
 
 const MobileMenu = ({ isOpen, toggle }) => {
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+
+  const getCartTotal = () => {
+    return cartItems.reduce(
+      (quantity, item) => quantity + Number(item.quantity),
+      0
+    );
+  };
+
   return (
     <MenuContainer isOpen={isOpen} onClick={toggle}>
       <TopIcon onClick={toggle}>
@@ -30,7 +41,7 @@ const MobileMenu = ({ isOpen, toggle }) => {
         <li>
           <MenuLink to="/cart" onClick={toggle}>
             <CartIcon /> Cart:
-            <CartBadge>0</CartBadge>
+            <CartBadge>{getCartTotal()}</CartBadge>
           </MenuLink>
         </li>
       </SidebarWrapper>

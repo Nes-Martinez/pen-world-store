@@ -5,10 +5,12 @@ import styled from "styled-components";
 import { FaTrash } from "react-icons/fa";
 
 const CartItem = ({ product, quantityHandler, removeItemHandler }) => {
+  console.log("product", product);
+
   return (
     <CartItemContainer>
       <CartItemImage>
-        <img src={product.imageUrl} />
+        <img src={product.featuredImage} alt={product.name} />
       </CartItemImage>
       <CartItemName to={`/products/${product.id}`}>
         <ItemName>{product.name}</ItemName>

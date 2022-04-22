@@ -51,6 +51,7 @@ const InfoContainer = styled.div`
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
   z-index: 3;
   display: column;
   align-items: center;
@@ -67,6 +68,7 @@ const Container = styled.div`
   height: auto;
   position: relative;
   transition: 0.2s escape;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 
   &:hover {
     transform: scale(1.03);
@@ -88,6 +90,8 @@ const IconLink = styled(Link)`
   height: 40px;
   border-radius: 50%;
   background-color: white;
+  text-decoration: none;
+  color: #000000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,7 +99,8 @@ const IconLink = styled(Link)`
   transition: all 0.5s ease;
 
   &:hover {
-    background-color: #e9f5f5;
+    background-color: #a81878;
+    color: #ffffff;
     transform: scale(1.1);
   }
 `;
@@ -112,7 +117,8 @@ const Icon = styled.div`
   transition: all 0.5s ease;
 
   &:hover {
-    background-color: #e9f5f5;
+    background-color: #a81878;
+    color: #ffffff;
     transform: scale(1.1);
   }
 `;

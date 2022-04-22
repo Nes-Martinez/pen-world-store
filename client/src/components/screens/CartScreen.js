@@ -22,6 +22,21 @@ const CartScreen = () => {
     dispatch(removeFromCart(id));
   };
 
+  const getTotalInventory = () => {
+    return cartItems.reduce((qty, item) => Number(item.quantity) + qty, 0);
+  };
+
+  const getTotalCost = () => {
+    return cartItems.reduce(
+      (price, item) => item.price * item.quantity + price,
+      0
+    );
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Container>
       <CartContainer>
@@ -44,8 +59,8 @@ const CartScreen = () => {
 
         <CartRight>
           <CartRightInfo>
-            <TotalText>Subtotal: 0 items</TotalText>
-            <PriceText>$100</PriceText>
+            <TotalText>Subtotal: ({getTotalInventory()}) items</TotalText>
+            <PriceText>${getTotalCost().toFixed(2)}</PriceText>
           </CartRightInfo>
           <BtnWrapper>
             <CheckoutButton>Proceed To Checkout</CheckoutButton>

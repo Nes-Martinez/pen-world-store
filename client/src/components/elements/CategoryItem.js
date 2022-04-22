@@ -47,6 +47,7 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(70%);
 `;
 
 const Info = styled.div`
@@ -59,7 +60,6 @@ const Info = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  filter: brightness(80%);
 
   &:hover {
     filter: brightness(100%);
@@ -68,11 +68,12 @@ const Info = styled.div`
 
 const Button = styled(Link)`
   border-radius: 20px;
-  background: purple;
+  background: #a81878;
   white-space: nowrap;
   padding: 10px 20px;
   color: #ffffff;
-  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  text-decoration: none;
+  font-size: clamp(1.2rem, 3vw, 1.3rem);
   font-weight: 500;
   outline: none;
   border: none;
@@ -83,7 +84,7 @@ const Button = styled(Link)`
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: #ffffff;
-    color: purple;
+    background: #9078a8;
+    color: #ffffff;
   }
 `;

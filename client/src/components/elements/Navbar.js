@@ -1,13 +1,24 @@
 import React from "react";
 import { Link as LinkR } from "react-router-dom";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 // ICONS
 import { FaPenNib } from "react-icons/fa";
 import { FaBars } from "react-icons/fa";
-import { BsFillCartFill, BsSearch } from "react-icons/bs";
+import { BsFillCartFill } from "react-icons/bs";
 
 const Navbar = ({ toggle }) => {
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+
+  const getCartTotal = () => {
+    return cartItems.reduce(
+      (quantity, item) => quantity + Number(item.quantity),
+      0
+    );
+  };
+
   return (
     <Container>
       <NavWrapper>
@@ -24,7 +35,7 @@ const Navbar = ({ toggle }) => {
           <CartContainer>
             <CartLink to="/cart">
               <CartIcon /> Cart:
-              <CartBadge>0</CartBadge>
+              <CartBadge>{getCartTotal()}</CartBadge>
             </CartLink>
           </CartContainer>
         </RightCol>
@@ -40,7 +51,7 @@ export default Navbar;
 
 const Container = styled.div`
   height: auto;
-  background-color: #06114f;
+  background-color: #480048;
   color: white;
 `;
 
@@ -65,7 +76,7 @@ const Logo = styled(LinkR)`
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    color: #cd7f32;
+    color: #9078a8;
   }
 `;
 
@@ -87,6 +98,11 @@ const MenuLink = styled(LinkR)`
   display: flex;
   align-items: center;
   margin-left: 20px;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    color: #9078a8;
+  }
 `;
 
 const CartLink = styled(LinkR)`
@@ -102,12 +118,12 @@ const CartContainer = styled.span`
   display: flex;
   align-items: center;
   margin-left: 20px;
-  background: purple;
+  background: #a81878;
   padding: 10px 20px;
   border-radius: 8px;
 
   &:hover {
-    background-color: yellow;
+    background-color: #9078a8;
     transition: all 0.2s ease-in-out;
   }
 `;

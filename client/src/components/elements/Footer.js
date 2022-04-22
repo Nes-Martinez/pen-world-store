@@ -17,17 +17,17 @@ const Footer = () => {
           <FooterLinksWrapper>
             <FooterLinks>
               <FooterLinkHeader>Information</FooterLinkHeader>
-              <FooterLink to="/">About</FooterLink>
-              <FooterLink to="/">All Products</FooterLink>
-              <FooterLink to="/">Privacy Policy</FooterLink>
+              <FooterLink to="/about">About</FooterLink>
+              <FooterLink to="/products">All Products</FooterLink>
+              <FooterLink to="/policy">Privacy Policy</FooterLink>
             </FooterLinks>
           </FooterLinksWrapper>
           <FooterLinksWrapper>
             <FooterLinks>
               <FooterLinkHeader>Quick Links</FooterLinkHeader>
-              <FooterLink to="/">My Account</FooterLink>
-              <FooterLink to="/">Sign Up</FooterLink>
-              <FooterLink to="/">Terms of Service</FooterLink>
+              <FooterLink to="/cart">My Account</FooterLink>
+              <FooterLink to="/register">Sign Up</FooterLink>
+              <FooterLink to="/policy">Terms of Service</FooterLink>
             </FooterLinks>
           </FooterLinksWrapper>
         </FooterLinksContainer>
@@ -67,7 +67,7 @@ const Footer = () => {
 export default Footer;
 
 const FooterContainer = styled.footer`
-  background-color: #06114f;
+  background-color: #480048;
 `;
 
 const FooterWrapper = styled.div`
@@ -83,6 +83,7 @@ const FooterWrapper = styled.div`
 const FooterLinksContainer = styled.div`
   display: flex;
   justify-content: center;
+
   @media screen and (max-width: 820px) {
     padding-top: 32px;
   }
@@ -90,6 +91,7 @@ const FooterLinksContainer = styled.div`
 
 const FooterLinksWrapper = styled.div`
   display: flex;
+
   @media screen and (max-width: 820px) {
     flex-direction: column;
   }
@@ -104,6 +106,7 @@ const FooterLinks = styled.div`
   width: 160px;
   box-sizing: border-box;
   color: #fff;
+
   @media screen and (max-width: 420px) {
     margin: 0;
     padding: 10px;
@@ -121,9 +124,10 @@ const FooterLink = styled(Link)`
   text-decoration: none;
   margin-bottom: 0.5rem;
   font-size: 14px;
+
   &:hover {
     transition: all 0.2s ease-in-out;
-    color: #cd7f32;
+    color: #9078a8;
   }
 `;
 
@@ -132,9 +136,10 @@ const FooterLinkExternal = styled.a`
   text-decoration: none;
   margin-bottom: 0.5rem;
   font-size: 14px;
+
   &:hover {
     transition: all 0.2s ease-in-out;
-    color: #cd7f32;
+    color: #9078a8;
   }
 `;
 
@@ -149,6 +154,7 @@ const SocialMediaWrapper = styled.div`
   align-items: center;
   max-width: 1100px;
   margin: 40px auto 0 auto;
+
   @media screen and (max-width: 820px) {
     flex-direction: column;
   }
@@ -163,9 +169,10 @@ const FooterLogo = styled(Link)`
   display: flex;
   align-items: center;
   margin-bottom: 16px;
+
   &:hover {
     transition: all 0.2s ease-in-out;
-    color: #cd7f32;
+    color: #9078a8;
   }
 `;
 
@@ -189,9 +196,11 @@ const SocialIconLink = styled.a`
 const PenIcon = styled(FaPenNib)`
   margin-right: 10px;
   font-size: 30px;
+
   &:hover {
     transition: all 0.2s ease-in-out;
   }
+
   @media screen and (max-width: 768px) {
     font-size: 1.5rem;
   }

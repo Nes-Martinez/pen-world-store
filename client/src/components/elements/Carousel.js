@@ -37,18 +37,7 @@ const Carousel = () => {
               <HeroH1>{item.title}</HeroH1>
               <HeroText>{item.description}</HeroText>
               <BtnWrapper>
-                <MainButton
-                  to="products"
-                  onMouseEnter={onHover}
-                  onMouseLeave={onHover}
-                  smooth="true"
-                  duration={500}
-                  spy="true"
-                  exact="true"
-                  offset={-80}
-                >
-                  Shop Pens
-                </MainButton>
+                <MainButton to="products">Shop Pens</MainButton>
               </BtnWrapper>
             </HeroItems>
           </Slide>
@@ -65,13 +54,13 @@ export default Carousel;
 
 const Container = styled.div`
   width: 100%;
-  height: 60vh;
+  height: 50vh;
   display: flex;
   position: relative;
   overflow: hidden;
 
   @media screen and (max-width: 968px) {
-    height: 19.5vh;
+    height: 16.5vh;
   }
 `;
 
@@ -101,10 +90,8 @@ const RightArrow = styled(ArrowRightOutlined)``;
 const SectionWrapper = styled.div`
   display: grid;
   z-index: 1;
-
   margin-right: auto;
   margin-left: auto;
-
   justify-content: center;
   display: flex;
   transition: all 1.5s ease;
@@ -131,9 +118,7 @@ const ImgContainer = styled.div`
   }
 `;
 
-const Image = styled.img`
-  /* height: 100%; */
-`;
+const Image = styled.img``;
 
 const HeroItems = styled.div`
   vertical-align: top;
@@ -144,22 +129,27 @@ const HeroItems = styled.div`
   @media screen and (max-width: 768px) {
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 10px;
     flex: 0.4;
   }
 `;
 
 const HeroH1 = styled.h1`
   font-size: clamp(1rem, 3vw, 2.7rem);
-  letter-spacing: 10px;
+  letter-spacing: 5px;
   font-weight: 700;
+  color: #480048;
 
   @media screen and (max-width: 768px) {
     letter-spacing: 5px;
+    padding-bottom: 0px;
   }
 `;
 
 const HeroText = styled.p`
-  margin: 30px 0px;
+  margin: 0px 0px;
+  padding-bottom: 20px;
+  padding-right: 5px;
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 3px;
@@ -170,16 +160,17 @@ const HeroText = styled.p`
 `;
 
 const BtnWrapper = styled.div`
-  margin-top: 32px;
+  margin-top: 22px;
   align-items: right;
 `;
 
 const MainButton = styled(Link)`
   border-radius: 20px;
-  background: purple;
+  background: #a81878;
   white-space: nowrap;
-  padding: 18px 40px;
+  padding: 18px 30px;
   color: #ffffff;
+  text-decoration: none;
   font-size: 20px;
   font-weight: 500;
   outline: none;
@@ -191,8 +182,8 @@ const MainButton = styled(Link)`
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: #ffffff;
-    color: purple;
+    background: #9078a8;
+    color: #ffffff;
   }
 
   @media screen and (max-width: 768px) {

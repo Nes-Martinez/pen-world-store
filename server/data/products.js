@@ -10,7 +10,7 @@ const products = [
     category: ["German"],
     isFeatured: true,
     featuredImage:
-      "https://drive.google.com/uc?id=11I_nCW7m0xLa4pIEJ8x4a8t7rKk0ql-d",
+      "https://drive.google.com/uc?id=1M9orKnciz6jG0egkNpc7wljlKQmY2ebH",
   },
   {
     name: "Cross Wanderlust Malta",
@@ -48,6 +48,8 @@ const products = [
       "https://www.lacouronneducomte.nl/media/catalog/product/cache/5c2356779436592a33d6b802a71e9fad/p/a/parker_1931654_IM_matte_blue_ct_fountainpen_3nd.jpg",
     category: ["American"],
     isFeatured: false,
+    featuedImage:
+      "https://drive.google.com/uc?id=1fw7IlVyi-rLVSmdcVN8Zz5DJvV31brdU",
   },
   {
     name: "Pelikan M400",
@@ -59,6 +61,8 @@ const products = [
       "https://thepelikansperch.files.wordpress.com/2019/03/400vm400-5.jpg",
     category: ["Japanese"],
     isFeatured: false,
+    featuredImage:
+      "https://drive.google.com/uc?id=1dlAtg0jLQEL4zdr1Cl1fDdpuz6W2xmA6",
   },
   {
     name: "Montegrappa Extra Otto",

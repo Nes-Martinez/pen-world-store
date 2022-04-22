@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Announcement = () => {
   return (
     <div>
-      <Container>Sales now!</Container>
+      <Container>Register today for exclusive discounts.</Container>
     </div>
   );
 };
@@ -13,6 +13,7 @@ export default Announcement;
 
 const Container = styled.div`
   height: auto;
+  padding: 1rem 0rem;
   background-color: white;
   color: #06114f;
   display: flex;

@@ -20,6 +20,7 @@ const FeaturedProducts = () => {
   return (
     <Container>
       <SectionHeading>Featured Products</SectionHeading>
+      <SectionText>Browse our most popular sellers.</SectionText>
       <Wrapper>
         {loading ? (
           <h2>Loading...</h2>
@@ -43,10 +44,27 @@ const Container = styled.div`
 const SectionHeading = styled.div`
   font-size: clamp(1rem, 7vw, 2.7rem);
   text-align: center;
-  padding: 3rem 3rem;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #06114f;
+  color: #480048;
+  background-color: white;
+
+  @media screen and (max-width: 868px) {
+    margin-bottom: 1rem;
+  }
+`;
+
+const SectionText = styled.div`
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  text-align: center;
+  padding-bottom: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  letter-spacing: 2px;
+  color: #480048;
   background-color: white;
 
   @media screen and (max-width: 868px) {
@@ -57,9 +75,10 @@ const SectionHeading = styled.div`
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 15px;
+  grid-gap: 25px;
   justify-items: center;
-  padding: 2rem 2rem;
+  padding: 2rem 10rem;
+  background: #ffffff;
 
   @media screen and (max-width: 1200px) {
     grid-template-columns: 1fr 1fr;

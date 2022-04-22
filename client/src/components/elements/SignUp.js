@@ -4,8 +4,10 @@ import styled from "styled-components";
 const SignUp = () => {
   return (
     <Container>
-      <Title>Stay in touch!</Title>
-      <Text>For the latest in sales, new products, and more.</Text>
+      <SectionHeading>Stay in touch!</SectionHeading>
+      <SectionText>
+        For the latest in sales, new products, and more.
+      </SectionText>
       <InputContainer>
         <Input placeholder="Enter Email" />
         <Button>
@@ -26,15 +28,34 @@ const Container = styled.div`
   justify-content: center;
   flex-direction: column;
 `;
-const Title = styled.h1`
-  font-size: 50px;
-  margin-bottom: 20px;
+
+const SectionHeading = styled.div`
+  font-size: clamp(1rem, 7vw, 2.7rem);
+  text-align: center;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #480048;
+
+  @media screen and (max-width: 868px) {
+    margin-bottom: 1rem;
+  }
 `;
 
-const Text = styled.div`
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 20px;
+const SectionText = styled.div`
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  text-align: center;
+  padding-bottom: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  letter-spacing: 2px;
+  color: #480048;
+
+  @media screen and (max-width: 868px) {
+    margin-bottom: 1rem;
+  }
 `;
 
 const InputContainer = styled.div`
@@ -55,6 +76,11 @@ const Input = styled.input`
 const Button = styled.button`
   flex: 1;
   border: none;
-  background-color: #06114f;
+  background-color: #a81878;
   color: white;
+
+  &:hover {
+    background-color: #9078a8;
+    transition: all 0.2s ease-in-out;
+  }
 `;
