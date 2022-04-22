@@ -8,7 +8,7 @@ const Categories = () => {
   return (
     <Container>
       <SectionHeading>Shop by Category</SectionHeading>
-      <SectionText>How can we help?</SectionText>H
+      <SectionText>How can we help?</SectionText>
       <SectionWrapper>
         {categoryDetails.map((item) => (
           <CategoryItem item={item} key={item.id} />
