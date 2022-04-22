@@ -42,7 +42,7 @@ const SectionWrapper = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-    padding: 2rem 2rem;
+    padding: 0rem 2rem;
   }
 `;
 
@@ -57,22 +57,22 @@ const SectionHeading = styled.div`
   color: #480048;
   background-color: white;
 
-  @media screen and (max-width: 868px) {
+  /* @media screen and (max-width: 868px) {
     margin-bottom: 1rem;
-  }
+  } */
 `;
 
 const SectionText = styled.div`
   font-size: clamp(1rem, 2vw, 1.2rem);
   text-align: center;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
   padding-left: 3rem;
   padding-right: 3rem;
   letter-spacing: 2px;
   color: #480048;
   background-color: white;
 
-  @media screen and (max-width: 868px) {
+  /* @media screen and (max-width: 868px) {
     margin-bottom: 1rem;
-  }
+  } */
 `;

@@ -52,9 +52,9 @@ const SectionHeading = styled.div`
   color: #480048;
   background-color: white;
 
-  @media screen and (max-width: 868px) {
+  /* @media screen and (max-width: 868px) {
     margin-bottom: 1rem;
-  }
+  } */
 `;
 
 const SectionText = styled.div`
@@ -67,9 +67,9 @@ const SectionText = styled.div`
   color: #480048;
   background-color: white;
 
-  @media screen and (max-width: 868px) {
+  /* @media screen and (max-width: 868px) {
     margin-bottom: 1rem;
-  }
+  } */
 `;
 
 const Wrapper = styled.div`
@@ -82,8 +82,10 @@ const Wrapper = styled.div`
 
   @media screen and (max-width: 1200px) {
     grid-template-columns: 1fr 1fr;
+    padding: 2rem 2rem;
   }
   @media screen and (max-width: 868px) {
     grid-template-columns: 1fr;
+    padding: 2rem 2rem;
   }
 `;

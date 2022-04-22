@@ -138,4 +138,6 @@ const IconWrapper = styled.div`
 
 const Title = styled.h1`
   color: white;
+  font-size: clamp(1.6rem, 3.5vw, 1.6rem);
+  text-align: center;
 `;
