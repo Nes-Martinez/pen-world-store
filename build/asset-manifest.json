@@ -1,30 +1,21 @@
 {
   "files": {
     "main.css": "/static/css/main.398180d0.css",
-    "main.js": "/static/js/main.1975cc4b.js",
+    "main.js": "/static/js/main.caab3fe1.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
-    "static/media/lamysse-1000px.png": "/static/media/lamysse-1000px.277ac4a0dab866f94b4c.png",
-    "static/media/slide3.jpg": "/static/media/slide3.2c12a8300d786cc4aa62.jpg",
-    "static/media/slide2.jpg": "/static/media/slide2.2f7e6c5e489f2329a2cd.jpg",
-    "static/media/slide1.jpg": "/static/media/slide1.439a6765cbfb85804504.jpg",
+    "static/media/slide1.jpg": "/static/media/slide1.747cd5ae8b64e82f5088.jpg",
+    "static/media/slide3.jpg": "/static/media/slide3.7cc07cb8f5bb09fad1fd.jpg",
+    "static/media/slide2.jpg": "/static/media/slide2.55b4ed8f4fc8d6aee837.jpg",
     "static/media/category1.jpg": "/static/media/category1.42d7a0a9d1d267d17da8.jpg",
-    "static/media/scrivner-1000px.jpg": "/static/media/scrivner-1000px.66d9cd0fcbb64b04a44b.jpg",
     "static/media/category3.jpg": "/static/media/category3.75a705f2c52aabdc6e18.jpg",
-    "static/media/category2.jpg": "/static/media/category2.00b43ace8b269507472d.jpg",
-    "static/media/pel400-1000px.jpg": "/static/media/pel400-1000px.9b711f19051b9e0a7178.jpg",
-    "static/media/malta-1000px.jpg": "/static/media/malta-1000px.a48caf509f577b5aeec7.jpg",
-    "static/media/pilote95s-1000px.jpg": "/static/media/pilote95s-1000px.c3ad449fc220a573c0c3.jpg",
-    "static/media/parkerim-1000px.jpg": "/static/media/parkerim-1000px.238936367fdde917545c.jpg",
-    "static/media/montegrappa-1000px.jpg": "/static/media/montegrappa-1000px.9bb7c87aa55606e598c4.jpg",
-    "static/media/matsutora-1000px.jpg": "/static/media/matsutora-1000px.42543bb7a6dc468f9642.jpg",
-    "static/media/sailor1911-1000px.jpg": "/static/media/sailor1911-1000px.c5109ce29603d9680f34.jpg",
+    "static/media/category2.jpg": "/static/media/category2.091630a26a899d23ccb7.jpg",
     "index.html": "/index.html",
     "main.398180d0.css.map": "/static/css/main.398180d0.css.map",
-    "main.1975cc4b.js.map": "/static/js/main.1975cc4b.js.map",
+    "main.caab3fe1.js.map": "/static/js/main.caab3fe1.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.398180d0.css",
-    "static/js/main.1975cc4b.js"
+    "static/js/main.caab3fe1.js"
   ]
 }

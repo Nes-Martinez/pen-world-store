@@ -15,7 +15,7 @@ const CartItem = ({ product, quantityHandler, removeItemHandler }) => {
       <CartItemName to={`/products/${product.id}`}>
         <ItemName>{product.name}</ItemName>
       </CartItemName>
-      <ItemPrice>{product.price}</ItemPrice>
+      <ItemPrice>${product.price} ea.</ItemPrice>
       <CartSelect
         value={product.quantity}
         onChange={(evt) => quantityHandler(product.id, evt.target.value)}
@@ -40,11 +40,19 @@ const CartItemContainer = styled.div`
   padding: 1rem;
   display: grid;
   grid-template-columns: 1fr 4fr 1fr 1fr 1fr;
-  gap: 8px;
+  grid-gap: 8px;
   background: #fff;
   border-radius: 2px;
   place-items: center;
   margin-bottom: 8px;
+  margin-right: 0px;
+
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+  }
+  @media screen and (max-width: 868px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
 `;
 
 const CartItemImage = styled.div``;
@@ -54,7 +62,9 @@ const CartItemName = styled(LinkR)`
   color: #171717;
 `;
 
-const ItemName = styled.p``;
+const ItemName = styled.p`
+  font-weight: 700;
+`;
 
 const ItemPrice = styled.p``;
 
@@ -66,7 +76,7 @@ const Option = styled.option``;
 
 const DeleteButton = styled.button`
   padding: 10px 17px;
-  color: red;
+  color: #a81878;
   background: #f4f4f4;
   border: 1px solid #171717;
   cursor: pointer;
@@ -75,7 +85,8 @@ const DeleteButton = styled.button`
   &:hover,
   &:active,
   &:focus {
-    background: #171717;
+    background-color: black;
+    transition: all 0.2s ease-in-out;
     transform: scale(1.2);
   }
 `;

@@ -10,7 +10,7 @@ const FeaturedProducts = () => {
   const dispatch = useDispatch();
 
   const getFeatured = useSelector((state) => state.getFeatured);
-  console.log("Featured", getFeatured);
+
   const { products, loading, error } = getFeatured;
 
   useEffect(() => {

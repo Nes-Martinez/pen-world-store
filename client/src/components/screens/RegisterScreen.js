@@ -60,9 +60,9 @@ const RegisterScreen = () => {
       <RegisterScreenForm onSubmit={registerHandler}>
         <RegisterTitle>Register</RegisterTitle>
         {error && <ErrorMessage>{error}</ErrorMessage>}
-        <RegisterInput>
-          <label htmlFor="name">Username:</label>
-          <input
+        <RegisterField>
+          <RegisterLabel htmlFor="name">Username:</RegisterLabel>
+          <RegisterInput
             type="text"
             required
             id="name"
@@ -70,10 +70,10 @@ const RegisterScreen = () => {
             value={username}
             onChange={(evt) => setUsername(evt.target.value)}
           />
-        </RegisterInput>
-        <RegisterInput>
-          <label htmlFor="email">Email:</label>
-          <input
+        </RegisterField>
+        <RegisterField>
+          <RegisterLabel htmlFor="email">Email:</RegisterLabel>
+          <RegisterInput
             type="email"
             required
             id="email"
@@ -81,10 +81,10 @@ const RegisterScreen = () => {
             value={email}
             onChange={(evt) => setEmail(evt.target.value)}
           />
-        </RegisterInput>
-        <RegisterInput>
-          <label htmlFor="password">Password:</label>
-          <input
+        </RegisterField>
+        <RegisterField>
+          <RegisterLabel htmlFor="password">Password:</RegisterLabel>
+          <RegisterInput
             type="password"
             required
             id="password"
@@ -92,10 +92,12 @@ const RegisterScreen = () => {
             value={password}
             onChange={(evt) => setPassword(evt.target.value)}
           />
-        </RegisterInput>
-        <RegisterInput>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
-          <input
+        </RegisterField>
+        <RegisterField>
+          <RegisterLabel htmlFor="confirmPassword">
+            Confirm Password:
+          </RegisterLabel>
+          <RegisterInput
             type="password"
             required
             id="confirmpassword"
@@ -103,10 +105,10 @@ const RegisterScreen = () => {
             value={confirmPassword}
             onChange={(evt) => setConfirmPassword(evt.target.value)}
           />
-        </RegisterInput>
+        </RegisterField>
         <RegisterButton>Register</RegisterButton>
         <RegisterSubtext>
-          Already have an account? <Link to="/login">Login</Link>
+          Already have an account? <LoginLink to="/login">Login now.</LoginLink>
         </RegisterSubtext>
       </RegisterScreenForm>
     </RegisterMain>
@@ -124,38 +126,64 @@ const RegisterMain = styled.div`
 `;
 
 const RegisterScreenForm = styled.form`
-  width: 380px;
+  width: 580px;
   padding: 1.5rem;
+  background: #480048;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-  background: #fff;
+  color: #ffffff;
 `;
 
 const RegisterTitle = styled.h3`
+  font-size: 2rem;
   text-align: center;
   margin-bottom: 1rem;
 `;
 
-const RegisterInput = styled.div`
+const RegisterField = styled.div`
   padding: 10px 20px;
   border: none;
   border-bottom: 3px solid transparent;
-  background-color: #eee;
+  background: #480048;
   outline-width: 0;
   font-size: 1rem;
 `;
 
+const RegisterLabel = styled.label`
+  color: #ffffff;
+  font-weight: 500;
+  padding-right: 5px;
+`;
+
+const RegisterInput = styled.input`
+  color: #000000;
+  font-size: 0.8rem;
+  font-weight: 200;
+  padding: 5px 5px;
+`;
+
 const RegisterButton = styled.button`
-  padding: 10px 20px;
+  padding: 10px 30px;
+  border-radius: 3px;
+  margin-left: 20px;
+  margin-top: 20px;
   cursor: pointer;
-  width: 100%;
   font-size: 1rem;
   border: none;
+  color: #ffffff;
+  background: #a81878;
 `;
 
 const RegisterSubtext = styled.p`
+  padding-left: 20px;
   font-size: 0.7rem;
   display: block;
-  margin: 0.5rem 0;
+  margin: 0.8rem 0;
+`;
+
+const LoginLink = styled(Link)`
+  text-decoration: underline;
+  color: #ffffff;
+  font-weight: 700;
 `;
 
 const ErrorMessage = styled.p`

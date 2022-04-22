@@ -37,7 +37,7 @@ const Carousel = () => {
               <HeroH1>{item.title}</HeroH1>
               <HeroText>{item.description}</HeroText>
               <BtnWrapper>
-                <MainButton to="products">Shop Pens</MainButton>
+                <MainButton to={item.buttonLink}>{item.buttonText}</MainButton>
               </BtnWrapper>
             </HeroItems>
           </Slide>

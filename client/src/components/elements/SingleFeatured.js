@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -14,9 +14,10 @@ const SingleFeatured = ({ product }) => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [quantity] = useState(1);
 
   const addToCartHandler = () => {
-    dispatch(addToCart(product._id));
+    dispatch(addToCart(product._id, quantity));
     navigate("/cart");
   };
 

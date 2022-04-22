@@ -39,9 +39,9 @@ const CartScreen = () => {
 
   return (
     <Container>
+      <CartTitle>Your Cart</CartTitle>
       <CartContainer>
         <CartLeft>
-          <CartTitle>Your Cart</CartTitle>
           {cartItems.length === 0 ? (
             <CartText>
               Your Cart Is Empty <CartLink to="/">Go Back</CartLink>
@@ -76,19 +76,38 @@ export default CartScreen;
 const Container = styled.div``;
 
 const CartContainer = styled.div`
-  display: flex;
+  display: grid;
   margin: 2rem auto;
+  grid-template-columns: 3fr 1fr;
+
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (max-width: 868px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const CartLeft = styled.div`
-  flex: 0.7;
-  margin-right: 1rem;
+  flex: 0.9;
+
   background: transparent;
   padding: 1rem;
 `;
 
 const CartTitle = styled.h2`
-  margin-bottom: 1rem;
+  font-size: clamp(1rem, 4vw, 1.7rem);
+  text-align: center;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #480048;
+
+  @media screen and (max-width: 868px) {
+    margin-bottom: 1rem;
+  }
 `;
 
 const CartText = styled.div``;
@@ -96,39 +115,40 @@ const CartText = styled.div``;
 const CartLink = styled(LinkR)``;
 
 const CartRight = styled.div`
-  flex: 0.3;
+  flex: 0.2;
+  margin: 2rem;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
   height: fit-content;
   padding: 1rem;
-  margin-right: 1rem;
 `;
 
 const CartRightInfo = styled.div`
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 1rem;
 `;
 
 const TotalText = styled.p`
   font-weight: bold;
-  padding: 8px;
 `;
 
 const PriceText = styled.p`
-  padding: 8px;
+  letter-spacing: 3px;
 `;
 
 const BtnWrapper = styled.div``;
 
 const CheckoutButton = styled.div`
-  padding: 10px 17px;
-  width: 100%;
-  background: #171717;
-  color: #f4f4f4;
-  border: 1px solid #171717;
+  width: 60%;
+  border-radius: 8px;
+  color: #ffffff;
   cursor: pointer;
+  background: #a81878;
+  padding: 10px 20px;
+  border-radius: 8px;
 
   &:hover {
+    background-color: #9078a8;
+    transition: all 0.2s ease-in-out;
     opacity: 0.9;
   }
 `;

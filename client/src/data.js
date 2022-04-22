@@ -12,6 +12,8 @@ export const penDetails = [
     imgUrl: img1,
     title: "Quality Service",
     description: "Your one-stop shop for pen needs.",
+    buttonText: "Shop pens.",
+    buttonLink: "/products",
     bgColor: "f5fafd",
   },
   {
@@ -19,6 +21,8 @@ export const penDetails = [
     imgUrl: img2,
     title: "Exclusive Offers",
     description: "Register today for discounts.",
+    buttonText: "Register Now!",
+    buttonLink: "/register",
     bgColor: "fcf1ed",
   },
   {
@@ -26,6 +30,8 @@ export const penDetails = [
     imgUrl: img3,
     title: "Since 2004",
     description: "Established history of excellence.",
+    buttonText: "About",
+    buttonLink: "/about",
     bgColor: "fbf0f4",
   },
 ];
