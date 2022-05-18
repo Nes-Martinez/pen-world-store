@@ -59,8 +59,8 @@ const Container = styled.div`
   position: relative;
   overflow: hidden;
 
-  @media screen and (max-width: 968px) {
-    height: 16.5vh;
+  @media screen and (max-width: 1200px) {
+    height: 60vh;
   }
 `;
 
@@ -104,33 +104,35 @@ const Slide = styled.div`
   align-items: center;
   background-color: #${(props) => props.bgColor};
 
-  @media screen and (max-width: 968px) {
+  @media screen and (max-width: 600px) {
+    justify-content: center;
     padding: 0rem 0rem;
+    flex-direction: column;
   }
 `;
 
 const ImgContainer = styled.div`
-  height: 100%;
-  flex: 0.9;
+  height: auto;
+  flex: 1.2;
+`;
 
-  @media screen and (max-width: 768px) {
-    flex: 1;
+const Image = styled.img`
+  @media screen and (max-width: 968px) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `;
 
-const Image = styled.img``;
-
 const HeroItems = styled.div`
-  vertical-align: top;
-  flex: 0.5;
+  flex: 0.8;
   padding-left: 40px;
   padding-right: 40px;
 
   @media screen and (max-width: 768px) {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 10px;
-    flex: 0.4;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
   }
 `;
 
@@ -154,14 +156,18 @@ const HeroText = styled.p`
   font-weight: 500;
   letter-spacing: 3px;
 
-  @media screen and (max-width: 768px) {
-    display: none;
+  @media screen and (max-width: 968px) {
+    padding-bottom: 10px;
   }
 `;
 
 const BtnWrapper = styled.div`
   margin-top: 22px;
   align-items: right;
+
+  @media screen and (max-width: 968px) {
+    margin-top: 10px;
+  }
 `;
 
 const MainButton = styled(Link)`
@@ -188,17 +194,12 @@ const MainButton = styled(Link)`
 
   @media screen and (max-width: 768px) {
     border-radius: 15px;
-    background: purple;
+    background: #a81878;
     white-space: nowrap;
     padding: 12px 20px;
-    color: #ffffff;
     font-size: 12px;
-    font-weight: 500;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    justify-content: right;
-    align-items: right;
+    justify-content: center;
+    align-items: center;
     transition: all 0.2s ease-in-out;
   }
 `;
