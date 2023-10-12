@@ -7,8 +7,8 @@ import { categoryDetails } from "../../data";
 const Categories = () => {
   return (
     <Container>
-      <SectionHeading>Shop by Category</SectionHeading>
-      <SectionText>How can we help?</SectionText>
+      <SectionHeading>Shop Pens by Category</SectionHeading>
+      <SectionText>How can we help? Start here.</SectionText>
       <SectionWrapper>
         {categoryDetails.map((item) => (
           <CategoryItem item={item} key={item.id} />
